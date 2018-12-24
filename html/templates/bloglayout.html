@@ -11,7 +11,7 @@
     <link href="static/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap -->
     <link href="static/fonts/font-awesome/font-awesome.min.css" rel="stylesheet"> <!-- font-awesome -->
     <link href="static/css/mobile-menu.css" rel="stylesheet"> <!-- Mobile Menu Style -->
-    <link href="static/css/owl.carousel.css"F rel="stylesheet"> <!-- Owl carousel -->
+    <link href="static/css/owl.carousel.css"rel="stylesheet"> <!-- Owl carousel -->
     <link href="static/css/owl.theme.default.min.css" rel="stylesheet"> <!-- Owl carousel -->
     <link href="static/css/style.css" rel="stylesheet"> <!-- Theme Style -->
 </head>
@@ -30,7 +30,7 @@
 <div class="uc-mobile-menu-pusher">
 <div class="content-wrapper">
 <section id="header_section_wrapper" class="header_section_wrapper">
-    <div class="container">F
+    <div class="container">
         <div class="header-section">
             <div class="row">
               <div class="col-md-4">
@@ -44,10 +44,9 @@
                       <!-- Top Social Section -->
                   </div>
                 </div>
-                  <!-- Left Header Section -->
                 <div class="col-md-4">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="{{ url_for('blog') }}">
                           <h2 style="font-size:40px;">
                             A.&nbsp&nbspLYSE<br><br>N.ICOLE<br><br>D.&nbsp&nbsp&nbspUNN
                           </h2>
@@ -88,115 +87,7 @@
 </section>
 <!-- header_section_wrapper -->
 
-<section id="feature_news_section" class="feature_news_section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                <div class="feature_article_wrapper">
-                    <div class="feature_article_img">
-                        <img class="img-responsive top_static_article_img" src="static/img/feature-top.jpg"
-                             alt="feature-top">
-                    </div>
-                    <!-- feature_article_img -->
-                    <div class="feature_article_inner">
-                        <div class="tag_lg red"><a href="category.html">Latest</a></div>
-                        <div class="feature_article_title">
-                            <h1><a href="single.html" target="_self">Novice Newcomer to Professional Programmer</a></h1>
-                        </div>
-                        <!-- feature_article_title -->
-                        <div class="feature_article_date"><a href="#" target="_self">Aug 4, 2019</a></div>
-                        <!-- feature_article_date -->
-                        <div class="feature_article_content">
-                            Stories of 5 people who became professional programmers
-                        </div>
-                        <!-- feature_article_content -->
-                    </div>
-                    <!-- feature_article_inner -->
-                </div>
-                <!-- feature_article_wrapper -->
-            </div>
-            <!-- col-md-7 -->
-
-            <div class="col-md-5">
-                <div class="feature_static_wrapper">
-                    <div class="feature_article_img">
-                        <img class="img-responsive" src="static/img/feature-static1.jpg" alt="feature-top">
-                    </div>
-                    <!-- feature_article_img -->
-                    <div class="feature_article_inner">
-                        <div class="feature_article_title">
-                            <h1><a href="beingblack.html" target="_self">Being Black in a Predominently White Workforce: Opportunity or Obstacle?</a></h1>
-                        </div>
-                        <!-- feature_article_title -->
-                        <div class="feature_article_date"><a href="#" target="_self">Aug 4, 2019</a></div>
-                        <!-- feature_article_date -->
-                        <div class="feature_article_content">
-                            In tech, as in many other industries, the percentage of black employees as an overall percentage of the workforce is embarrasingly low.
-                        </div>
-                        <!-- feature_article_content -->
-                    </div>
-                    <!-- feature_article_inner -->
-                </div>
-                <!-- feature_static_wrapper -->
-            </div>
-            <!-- col-md-5 -->
-
-            <div class="col-md-5">
-                <div class="feature_static_last_wrapper">
-                    <div class="feature_article_img">
-                        <img class="img-responsive" src="static/img/feature-static2.jpg" alt="feature-top">
-                    </div>
-                    <!-- feature_article_img -->
-                    <div class="feature_article_inner">
-                        <div class="feature_article_title">
-                            <h1><a href="single.html" target="_self">Placeholder</a></h1>
-                        </div>
-                        <!-- feature_article_title -->
-                        <div class="feature_article_date"><a href="#" target="_self">Aug 4, 2019</a></div>
-                        <!-- feature_article_date -->
-                        <div class="feature_article_content">
-                            Placeholder...
-                        </div>
-                        <!-- feature_article_content -->
-                    </div>
-                    <!-- feature_article_inner -->
-                </div>
-                <!-- feature_static_wrapper -->
-            </div>
-            <!-- col-md-5 -->
-
-            <div class="col-md-12">
-              <br>
-                <div class="feature_static_wrapper">
-                    <div class="feature_article_img">
-                        <img class="img-responsive" src="static/img/Rue_saint_martin.jpg" alt="feature-top">
-                    </div>
-                    <!-- feature_article_img -->
-                    <div class="feature_article_inner">
-                        <div class="feature_article_title">
-                            <h1><a href="single.html" target="_self">Being Black in a Predominently White Workforce: Opportunity or Obstacle?</a></h1>
-                        </div>
-                        <!-- feature_article_title -->
-                        <div class="feature_article_date"><a href="#" target="_self">Aug 4, 2019</a></div>
-                        <!-- feature_article_date -->
-                        <div class="feature_article_content">
-                            In tech, as in many other industries, the percentage of black employees as an overall percentage of the workforce is embarrasingly low.
-                        </div>
-                        <!-- feature_article_content -->
-                    </div>
-                    <!-- feature_article_inner -->
-                </div>
-                <!-- feature_static_wrapper -->
-            </div>
-            <!-- col-md-12 -->
-
-
-        </div>
-        <!-- Row -->
-    </div>
-    <!-- container -->
-</section>
-<!-- Feature News Section -->
+{% block content %}{% endblock %}
 
 <section id="category_section" class="category_section">
 <div class="container">
