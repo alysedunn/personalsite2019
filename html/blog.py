@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 application = Flask(__name__)
+FLASK_ENV = 'development'
+FLASK_APP = 'blog.py'
 
 @application.route('/')
 def blog():
