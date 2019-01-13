@@ -1,9 +1,9 @@
 branch-defaults:
   master:
-    environment: production
+    environment: null
     group_suffix: null
 global:
-  application_name: '1'
+  application_name: personalsite2019
   branch: null
   default_ec2_keyname: personalsite_2019_keypair
   default_platform: Python 2.7
