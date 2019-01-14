@@ -32,60 +32,73 @@
 
     <div class="entity_content">
         <p>
-          <a href="http://flask.pocoo.org/">Flask</a> is a great <a href="https://www.python.org/">Python</a>
-          framework for both new and experienced Python developers who want a lightweight framework that will
-          help them get an app up and running quickly. Despite working at <a href="https://venmo.com/">Venmo</a>,
-          which uses <a href="https://www.djangoproject.com/">Django</a> as its framework, I still use flask
-          for a variety of personal projects, including this blog.
+            Three years ago, I was a new developer trying (and failing) to deploy my simple
+            <a href="https://www.python.org/">Python</a> <a href="http://flask.pocoo.org/">flask</a> application to
+            <a href="https://aws.amazon.com/">Amazon Web Services</a>' (AWS)
+            <a href="https://aws.amazon.com/elasticbeanstalk/">Elastic Beanstalk</a> (EB). In the process, I stumbled
+            across <a href="http://flask.pocoo.org/">this</a> documentation from flask,
+            <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html">this</a>
+            documentation from AWS, and
+            <a href="https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80">this</a> blog post
+            on how to use them together, all of which were extremely helpful. However, I was so new to development that
+            even with these and other helpful online resources, I found the entire process confusing, and I struggled
+            to debug the deployment issues that arose during the process. I still run into some of those deployment
+            issues when I deploy flask apps to EB today, so I've decided not to let another year go by without creating
+            a detailed tutorial on deploying flask apps to EB, complete with examples of common errors that pop up
+            during the process, and how to debug those errors. So, with that, let's get push get that flask app our of
+            your head and into production!
         </p>
+        <br>
         <p>
-          There's some great <a href="http://flask.pocoo.org/docs/1.0/quickstart/">documentation</a> available
-          on how to get started creating small flask apps, and some okay
-          <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html">
-            documentation</a> on how to deploy those apps to Elastic Beanstalk, but if you're new to flask and/or
-            AWS, it can be frustrating to navigate all available documentation on how to create and deploy
-            a flask app to Elastic Beanstalk, particularly if you're trying to do so via the AWS
-            <a href="https://aws.amazon.com/cli/">Command Line Interface</a>, which I highly recommend. With
-            that in mind, here's a step-by-step guide on how I deployed this very blog to Elastic Beanstalk. Note
-            that since I work on a Mac, all of the instructions provided are Mac-specific.
+            <b>Step 1: Make a flask app!</b><br>If you're a true beginner, just getting a flask app up and running
+            locally might be a significant feat, much less deploying it to production via EB. However, there are lots
+            of truly excellent tutorials online to guide you that are appropriate for even novice programmers, like
+            <a href="http://flask.pocoo.org/docs/1.0/tutorial/">this</a> one, which is a part of the official flask
+            documentation. Since the focus of this post is on <i>deploying</i> flask apps that you've already created,
+            I won't provide a tutorial on creating the apps themselves, but regardless of which tutorial you use and
+            what kind of app you create, be sure that your app meets the criteria below. If it doesn't, change it
+            before continuing with this tutorial. If you do not follow the instructions below exactly, I gaurantee
+            that you will encounter errors that I won't even begin to cover here.
+            <ol>
+                <li>
+                    Your 'application' file, i.e. the the file that contains your main python code (it probably has a
+                    line with <code>from flask import Flask</code> at the top of the file), must be called
+                    <code>application.py</code>.
+                </li>
+                <li>
+                    Within your application file (which should be named <code>application.py</code>), ensure that the
+                    variable that you assign to <code>Flask(__name__)</code> is <code>application</code>, <b>not</b>
+                    <code>app</code>. So, you should have a line in a file named <code>application.py</code> with
+                    <code>application = Flask(__name__)</code>.
+                </li>
+                <li>
+                    At the end of your application file, before to set the <code>"__name__"</code> attribute equal to
+                    <code>"__main__"</code>. So, you should have a small clause at the end of the file that looks
+                    something (or exactly) like this:<br>
+                    <code>
+                        if __name__ == "__main__":<br>
+                        &emsp;&emsp;&emsp;&emsp;application.debug = False<br>
+                        &emsp;&emsp;&emsp;&emsp;application.run()</code>
+                </li>
+            </ol>
         </p>
-        <ol>
-          <li>Create your flask application. The <a href="http://flask.pocoo.org/docs/0.12/">Flask</a> website
-            has great documentation on how to create flask apps. If this is your first time creating a Flask app,
-            I strongly recommend starting here.
-          </li>
-          <li>Create an <a href="https://aws.amazon.com/free/">AWS</a> account. Note that you must enter a credit
-            card to create an account; even a free account. That said, you won't actually get charged anything as
-            long as what you build is within their free usage tier. If paying nothing is important to you, just be
-            sure to read the fine print about what actually qualified for the free usage tier, and whether or not
-            what you're using is free forever or just temporarily.
-        </ol>
-
-
-
-        <blockquote class="pull-left">But I must explain to you how all this mistaken idea of denouncing pleasure
-        </blockquote>
-        <p> But who has any right to find fault with a man who chooses to enjoy a pleasure that has
-            no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-            On the other hand, we denounce with righteous indignation and dislike men who are so
-            beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire,
-            that they cannot foresee.Nor again is there anyone who loves or pursues or desires to
-            obtain pain of itself, because it is pain, but because occasionally circumstances occur
-            in which toil and pain can procure him some great pleasure. To take a trivial example,
-            which of us ever undertakes laborious physical exercise, except to obtain some advantage
-            from it? Nor again is there anyone who loves or pursues or desires to obtain pain of
-            itself, because it is pain, but because occasionally circumstances occur in which toil
-            and pain can procure him some great pleasure. To take a trivial example, which of us
-            ever
-        </p>
-
+        <br>
         <p>
-            But I must explain to you how all this mistaken idea of denouncing pleasure and praising
-            pain was born and I will give you a complete account of the system, and expound the
-            actual teachings of the great explorer of the truth, the master-builder of human
-            happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure,
-            but because those who do not know how to pursue pleasure rationally encounter
-            consequences that are extremely painful.
+            <b>Step 2: Make an AWS Account!</b><br><a href="https://aws.amazon.com/">Here's</a> the link to visit to
+            create an AWS account. Two notes about setting up an  account:
+            <ol>
+                <li>
+                    If you'd like an overview of all of the steps involved in creating an account,
+                    <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">
+                        this</a> outlines that process.
+                </li>
+                <li>
+                    You must enter a credit card in order to sign up for an AWS account. How much will you get charged
+                    on your credit card when you register? Well that depends on how much you plan on utilizing AWS, but
+                    for context, this blog is a flask app that I run on EB, and AWS bills me about $20 per month to
+                    keep it up and running.
+                </li>
+            </ol>
         </p>
     </div>
     <!-- entity_content -->
