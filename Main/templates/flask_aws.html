@@ -1,5 +1,12 @@
 {% extends "bloglayout.html" %}
 {% block content %}
+<style>
+    /*img {*/
+  /*float: right;*/
+/*}*/
+</style>
+
+
 <section id="entity_section" class="entity_section">
 <div class="container">
 <div class="row">
@@ -25,8 +32,13 @@
     </div>
     <!-- entity_social -->
 
-    <div class="entity_thumb">
-        <img class="img-responsive" src="static/img/Rue_saint_martin.jpg" alt="feature-top">
+    <div class="row">
+        <div class="column">
+            <img class="img-responsive" src="static/img/flask_python.png" alt="Python flask" width="50%" style="float: left; display:block; margin: auto; vertical-align: middle;">
+        </div>
+        <div class="column">
+            <img class="img-responsive" src="static/img/aws_eb.png" alt="AWS Elastic Beanstalk" width="50%" style="float: right; display:block; margin: auto; vertical-align: middle;">
+        </div>
     </div>
     <!-- entity_thumb -->
 
@@ -47,6 +59,15 @@
             a detailed tutorial on deploying flask apps to EB, complete with examples of common errors that pop up
             during the process, and how to debug those errors. So, with that, let's get push get that flask app our of
             your head and into production!
+        </p>
+        <br>
+        <p>
+            <b>Step 2: Create a virtual environment!</b><br>Truth be told, you can successfully get a Flask app up and
+            running without the use of a virtual environment. You might even be able to get it deployed to Elastic
+            Beanstalk without using a virtual environment. However, I ran into various errors in step _ below when I
+            did <i>not</i>use a virtual environment, so if you want this deployment to go smoothly, I recommend
+            starting here. I recommend using <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, which can
+            be installed by running <code>pip install virtualenv</code>.
         </p>
         <br>
         <p>

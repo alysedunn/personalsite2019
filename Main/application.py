@@ -21,6 +21,11 @@ def single():
     return render_template('single.html')
 
 
+@application.route('/key_terms_and_definitions')
+def key_terms_and_definitions():
+    return render_template('key_terms_and_definitions.html')
+
+
 if __name__ == "__main__":
     application.debug = False
     application.run()
