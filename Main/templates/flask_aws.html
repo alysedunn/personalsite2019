@@ -13,31 +13,28 @@
 <div class="col-md-12">
 <div class="entity_wrapper">
     <div class="entity_title">
-        <h1><a href="#">How to Deploy your Python Flask app to AWS Elastic Beanstalk</a></h1>
+        <h1>How to Deploy your Python Flask app to AWS Elastic Beanstalk</h1>
     </div>
     <!-- entity_title -->
 
-    <div class="entity_meta"><a href="#" target="_self">10Aug- 2015</a>
+    <div class="entity_meta">
+        1Feb- 2019
     </div>
     <!-- entity_meta -->
 
-    <div class="entity_social">
-        <a href="#" class="icons-sm sh-ic">
-            <i class="fa fa-share-alt"></i>
-            <b>424</b> <span class="share_ic">Shares</span>
-        </a>
-        <a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="icons-sm fb-ic"><i class="fa fa-linkedin-square"></i></a>
-    </div>
+    <!--<div class="entity_social">-->
+        <!--<a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>-->
+        <!--<a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a>-->
+        <!--<a href="#" class="icons-sm fb-ic"><i class="fa fa-linkedin-square"></i></a>-->
+    <!--</div>-->
     <!-- entity_social -->
 
     <div class="row">
-        <div class="column">
-            <img class="img-responsive" src="static/img/flask_python.png" alt="Python flask" width="50%" style="float: left; display:block; margin: auto; vertical-align: middle;">
+        <div class="column" >
+            <img class="img-responsive" src="static/img/flask-python.png" alt="Python flask" width="50%" style="float: left; display:block; margin-left: auto; margin-right: auto;">
         </div>
         <div class="column">
-            <img class="img-responsive" src="static/img/aws_eb.png" alt="AWS Elastic Beanstalk" width="50%" style="float: right; display:block; margin: auto; vertical-align: middle;">
+            <img class="img-responsive" src="static/img/aws_eb.png" alt="AWS Elastic Beanstalk" width="50%" style="float: right; display:block; margin-left: auto; margin-right: auto;">
         </div>
     </div>
     <!-- entity_thumb -->
@@ -47,38 +44,40 @@
             Three years ago, I was a new developer trying (and failing) to deploy my simple
             <a href="https://www.python.org/">Python</a> <a href="http://flask.pocoo.org/">flask</a> application to
             <a href="https://aws.amazon.com/">Amazon Web Services</a>' (AWS)
-            <a href="https://aws.amazon.com/elasticbeanstalk/">Elastic Beanstalk</a> (EB). In the process, I stumbled
-            across <a href="http://flask.pocoo.org/">this</a> documentation from flask,
+            <a href="https://aws.amazon.com/elasticbeanstalk/">Elastic Beanstalk</a> (EB). In the process, I reviewed
+            <a href="http://flask.pocoo.org/">this</a> documentation from Flask,
             <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html">this</a>
             documentation from AWS, and
             <a href="https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80">this</a> blog post
-            on how to use them together, all of which were extremely helpful. However, I was so new to development that
-            even with these and other helpful online resources, I found the entire process confusing, and I struggled
-            to debug the deployment issues that arose during the process. I still run into some of those deployment
-            issues when I deploy flask apps to EB today, so I've decided not to let another year go by without creating
-            a detailed tutorial on deploying flask apps to EB, complete with examples of common errors that pop up
-            during the process, and how to debug those errors. So, with that, let's get push get that flask app our of
-            your head and into production!
+            on using the two together. All  were helpful, but I was so new to development that even with these and
+            other resources, I found the entire process time consuming and confusing as I ran into one bug after
+            another. I still run into some of those bugs when I deploy my Flask apps to AWS today, but fortunately
+            after years of seeing them, I can resolve them much more quickly than I used to, and for those who might
+            still be struggling, I present the following step-by-step guide to deploying your own flask app to AWS
+            Elastic Beanstalk. Note for those new to Python, Flask, AWS, or all three: Be sure to click on the links
+            and <i class="fa fa-question-circle" aria-hidden="true" style="color: #2F2C99;"></i> icons throughout this
+            post for more detailed information on concepts, terms, and tools that may be new to you.
         </p>
         <br>
-        <p>
-            <b>Step 2: Create a virtual environment!</b><br>Truth be told, you can successfully get a Flask app up and
-            running without the use of a virtual environment. You might even be able to get it deployed to Elastic
-            Beanstalk without using a virtual environment. However, I ran into various errors in step _ below when I
-            did <i>not</i>use a virtual environment, so if you want this deployment to go smoothly, I recommend
-            starting here. I recommend using <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, which can
+            <b>Step 1: Create a <a href="key_terms_and_definitions.html">virtual environment!</b>
+            <i class="fa fa-question-circle" aria-hidden="true"></i></a><br>
+            To be fair, you can get a Flask app up and running successfully without the use of a virtual environment.
+            You might even be able to get that app deployed to EB without using a virtual environment. However, I ran
+            into various errors in step 4 below when I did <i>not</i>use a virtual environment. So, if you want this
+            deployment to go smoothly, I recommend starting here. To create a virtual environment, you must first
+            install virtualenv by running
             be installed by running <code>pip install virtualenv</code>.
         </p>
         <br>
         <p>
-            <b>Step 1: Make a flask app!</b><br>If you're a true beginner, just getting a flask app up and running
+            <b>Step 2: Make a flask app!</b><br>If you're a true beginner, just getting a flask app up and running
             locally might be a significant feat, much less deploying it to production via EB. However, there are lots
             of truly excellent tutorials online to guide you that are appropriate for even novice programmers, like
             <a href="http://flask.pocoo.org/docs/1.0/tutorial/">this</a> one, which is a part of the official flask
             documentation. Since the focus of this post is on <i>deploying</i> flask apps that you've already created,
             I won't provide a tutorial on creating the apps themselves, but regardless of which tutorial you use and
             what kind of app you create, be sure that your app meets the criteria below. If it doesn't, change it
-            before continuing with this tutorial. If you do not follow the instructions below exactly, I gaurantee
+            before continuing with this tutorial. If you do not follow the instructions below exactly, I guarantee
             that you will encounter errors that I won't even begin to cover here.
             <ol>
                 <li>
@@ -105,7 +104,7 @@
         </p>
         <br>
         <p>
-            <b>Step 2: Make an AWS Account!</b><br><a href="https://aws.amazon.com/">Here's</a> the link to visit to
+            <b>Step 3: Make an AWS Account!</b><br><a href="https://aws.amazon.com/">Here's</a> the link to visit to
             create an AWS account. Two notes about setting up an  account:
             <ol>
                 <li>
@@ -121,125 +120,134 @@
                 </li>
             </ol>
         </p>
+                <br>
+        <p>
+            <b>Step 4: Deploy to AWS!</b><br>This is the hardest part. Now, typically, I strongly advise against anyone
+            blindly copying and pasting commands that they find online unless you know exactly what they're doing.
+            However, if you're new to Flask, Python, and/or AWS, I do recommend copy/pasting in this tutorial. If you
+            want more information about exactly what each command is doing (which I do recommend reviewing), simply
+            select the <i class="fa fa-question-circle" aria-hidden="true"></i> icon next to each command for more info.
+        </p>
+        <br>
     </div>
     <!-- entity_content -->
 
-    <div class="entity_footer">
-        <div class="entity_tag">
-            <span class="blank"><a href="#">AWS</a></span>
-            <span class="blank"><a href="#">Flask</a></span>
-            <span class="blank"><a href="#">Python</a></span>
-            <span class="blank"><a href="#">Tech</a></span>
-            <span class="blank"><a href="#">Tutorials</a></span>
-        </div>
-        <!-- entity_tag -->
+    <!--<div class="entity_footer">-->
+        <!--<div class="entity_tag">-->
+            <!--<span class="blank"><a href="#">AWS</a></span>-->
+            <!--<span class="blank"><a href="#">Flask</a></span>-->
+            <!--<span class="blank"><a href="#">Python</a></span>-->
+            <!--<span class="blank"><a href="#">Tech</a></span>-->
+            <!--<span class="blank"><a href="#">Tutorials</a></span>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; entity_tag &ndash;&gt;-->
 
-        <div class="entity_social">
-            <span><i class="fa fa-share-alt"></i>424 <a href="#">Shares</a> </span>
-            <span><i class="fa fa-comments-o"></i>4 <a href="#">Comments</a> </span>
-        </div>
-        <!-- entity_social -->
+        <!--<div class="entity_social">-->
+            <!--<span><i class="fa fa-share-alt"></i>424 <a href="#">Shares</a> </span>-->
+            <!--<span><i class="fa fa-comments-o"></i>4 <a href="#">Comments</a> </span>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; entity_social &ndash;&gt;-->
 
-    </div>
+    <!--</div>-->
     <!-- entity_footer -->
 
 </div>
 <!-- entity_wrapper -->
 
-<div class="readers_comment">
-    <div class="entity_inner__title header_purple">
-        <h2>Comments</h2>
-    </div>
-    <!-- entity_title -->
+<!--<div class="readers_comment">-->
+    <!--<div class="entity_inner__title header_purple">-->
+        <!--<h2>Comments</h2>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; entity_title &ndash;&gt;-->
 
-    <div class="media">
-        <div class="media-left">
-            <a href="#">
-                <img alt="64x64" class="media-object" data-src="static/img/reader_img1.jpg"
-                     src="static/img/reader_img1.jpg" data-holder-rendered="true">
-            </a>
-        </div>
-        <div class="media-body">
-            <h2 class="media-heading"><a href="#">Sr. Ryan</a></h2>
-            But who has any right to find fault with a man who chooses to enjoy a pleasure that has
-            no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+    <!--<div class="media">-->
+        <!--<div class="media-left">-->
+            <!--<a href="#">-->
+                <!--<img alt="64x64" class="media-object" data-src="static/img/reader_img1.jpg"-->
+                     <!--src="static/img/reader_img1.jpg" data-holder-rendered="true">-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="media-body">-->
+            <!--<h2 class="media-heading"><a href="#">Sr. Ryan</a></h2>-->
+            <!--But who has any right to find fault with a man who chooses to enjoy a pleasure that has-->
+            <!--no annoying consequences, or one who avoids a pain that produces no resultant pleasure?-->
 
-            <div class="entity_vote">
-                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
-                <a href="#"><span class="reply_ic">Reply </span></a>
-            </div>
-            <div class="media">
-                <div class="media-left">
-                    <a href="#">
-                        <img alt="64x64" class="media-object" data-src="static/img/reader_img2.jpg"
-                             src="static/img/reader_img2.jpg" data-holder-rendered="true">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h2 class="media-heading"><a href="#">Admin</a></h2>
-                    But who has any right to find fault with a man who chooses to enjoy a pleasure
-                    that has no annoying consequences, or one who avoids a pain that produces no
-                    resultant pleasure?
+            <!--<div class="entity_vote">-->
+                <!--<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>-->
+                <!--<a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>-->
+                <!--<a href="#"><span class="reply_ic">Reply </span></a>-->
+            <!--</div>-->
+            <!--<div class="media">-->
+                <!--<div class="media-left">-->
+                    <!--<a href="#">-->
+                        <!--<img alt="64x64" class="media-object" data-src="static/img/reader_img2.jpg"-->
+                             <!--src="static/img/reader_img2.jpg" data-holder-rendered="true">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="media-body">-->
+                    <!--<h2 class="media-heading"><a href="#">Admin</a></h2>-->
+                    <!--But who has any right to find fault with a man who chooses to enjoy a pleasure-->
+                    <!--that has no annoying consequences, or one who avoids a pain that produces no-->
+                    <!--resultant pleasure?-->
 
-                    <div class="entity_vote">
-                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
-                        <a href="#"><span class="reply_ic">Reply </span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    <!--<div class="entity_vote">-->
+                        <!--<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>-->
+                        <!--<a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>-->
+                        <!--<a href="#"><span class="reply_ic">Reply </span></a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-    </div>
-    <!-- media end -->
+    <!--</div>-->
+    <!--&lt;!&ndash; media end &ndash;&gt;-->
 
-    <div class="media">
-        <div class="media-left">
-            <a href="#">
-                <img alt="64x64" class="media-object" data-src="static/img/reader_img3.jpg"
-                     src="static/img/reader_img3.jpg" data-holder-rendered="true">
-            </a>
-        </div>
-        <div class="media-body">
-            <h2 class="media-heading"><a href="#">S. Joshep</a></h2>
-            But who has any right to find fault with a man who chooses to enjoy a pleasure that has
-            no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+    <!--<div class="media">-->
+        <!--<div class="media-left">-->
+            <!--<a href="#">-->
+                <!--<img alt="64x64" class="media-object" data-src="static/img/reader_img3.jpg"-->
+                     <!--src="static/img/reader_img3.jpg" data-holder-rendered="true">-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="media-body">-->
+            <!--<h2 class="media-heading"><a href="#">S. Joshep</a></h2>-->
+            <!--But who has any right to find fault with a man who chooses to enjoy a pleasure that has-->
+            <!--no annoying consequences, or one who avoids a pain that produces no resultant pleasure?-->
 
-            <div class="entity_vote">
-                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
-                <a href="#"><span class="reply_ic">Reply </span></a>
-            </div>
-        </div>
-    </div>
-    <!-- media end -->
-</div>
-<!--Readers Comment-->
+            <!--<div class="entity_vote">-->
+                <!--<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>-->
+                <!--<a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>-->
+                <!--<a href="#"><span class="reply_ic">Reply </span></a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; media end &ndash;&gt;-->
+<!--</div>-->
+<!--&lt;!&ndash;Readers Comment&ndash;&gt;-->
 
-<div class="entity_comments">
-    <div class="entity_inner__title header_black">
-        <h2>Add a Comment</h2>
-    </div>
-    <!--Entity Title -->
+<!--<div class="entity_comments">-->
+    <!--<div class="entity_inner__title header_black">-->
+        <!--<h2>Add a Comment</h2>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;Entity Title &ndash;&gt;-->
 
-    <div class="entity_comment_from">
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputName" placeholder="Name">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-            </div>
-            <div class="form-group comment">
-                <textarea class="form-control" id="inputComment" placeholder="Comment"></textarea>
-            </div>
+    <!--<div class="entity_comment_from">-->
+        <!--<form>-->
+            <!--<div class="form-group">-->
+                <!--<input type="text" class="form-control" id="inputName" placeholder="Name">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<input type="text" class="form-control" id="inputEmail" placeholder="Email">-->
+            <!--</div>-->
+            <!--<div class="form-group comment">-->
+                <!--<textarea class="form-control" id="inputComment" placeholder="Comment"></textarea>-->
+            <!--</div>-->
 
-            <button type="submit" class="btn btn-submit red">Submit</button>
-        </form>
-    </div>
-    <!--Entity Comments From -->
-</div>
+            <!--<button type="submit" class="btn btn-submit red">Submit</button>-->
+        <!--</form>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;Entity Comments From &ndash;&gt;-->
+<!--</div>-->
 <!--Entity Comments -->
 </div>
 <!--Left Section-->
