@@ -50,17 +50,18 @@
             documentation from AWS, and
             <a href="https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80">this</a> blog post
             on using the two together. All  were helpful, but I was so new to development that even with these and
-            other resources, I found the entire process time consuming and confusing as I ran into one bug after
-            another. I still run into some of those bugs when I deploy my Flask apps to AWS today, but fortunately
-            after years of seeing them, I can resolve them much more quickly than I used to, and for those who might
-            still be struggling, I present the following step-by-step guide to deploying your own flask app to AWS
-            Elastic Beanstalk. Note for those new to Python, Flask, AWS, or all three: Be sure to click on the links
-            and <i class="fa fa-question-circle" aria-hidden="true" style="color: #2F2C99;"></i> icons throughout this
+            other resources, I found the entire process terribly frustrating as I ran into one bug after
+            another and tried to Google my way through each one of them. I still run into some of those bugs when I
+            deploy my Flask apps to AWS today, but fortunately after years of seeing them, I can power through them a
+            lot more quickly than I used to. In an effort to continue making this process as seamless as possible for
+            myself, and to assist others who may be struggling, I present the following step-by-step guide to deploying
+            your own flask app to AWS Elastic Beanstalk. The example assumes that you are using Python 2.7. Note for
+            those new to Python, Flask, AWS, or all three: Be sure to click on the links and
+            <i class="fa fa-question-circle" aria-hidden="true" style="color: #2F2C99;"></i> icons throughout this
             post for more detailed information on concepts, terms, and tools that may be new to you.
         </p>
         <br>
-            <b>Step 1: Create a <a href="key_terms_and_definitions.html">virtual environment!</b>
-            <i class="fa fa-question-circle" aria-hidden="true"></i></a><br>
+        <b>Step 1: Create a <a href="{{ url_for('key_terms_and_definitions') }}">virtual environment!</a></b><br>
             To be fair, you can get a Flask app up and running successfully without the use of a virtual environment.
             You might even be able to get that app deployed to EB without using a virtual environment. However, I ran
             into various errors in step 4 below when I did <i>not</i>use a virtual environment. So, if you want this
@@ -70,42 +71,44 @@
         </p>
         <br>
         <p>
-            <b>Step 2: Make a flask app!</b><br>If you're a true beginner, just getting a flask app up and running
-            locally might be a significant feat, much less deploying it to production via EB. However, there are lots
-            of truly excellent tutorials online to guide you that are appropriate for even novice programmers, like
-            <a href="http://flask.pocoo.org/docs/1.0/tutorial/">this</a> one, which is a part of the official flask
-            documentation. Since the focus of this post is on <i>deploying</i> flask apps that you've already created,
-            I won't provide a tutorial on creating the apps themselves, but regardless of which tutorial you use and
-            what kind of app you create, be sure that your app meets the criteria below. If it doesn't, change it
-            before continuing with this tutorial. If you do not follow the instructions below exactly, I guarantee
-            that you will encounter errors that I won't even begin to cover here.
+            <b>Step 2: Make a flask app!</b><br>If you're a true beginner, getting a flask app up and running
+            locally might be a feat in and of itself. Fortunately, there are many great tutorials that can help, like
+            <a href="http://flask.pocoo.org/docs/1.0/tutorial/">this</a> one, from the official creators of flask.
+            Since the focus of this post is on <i>deploying</i> flask apps that you've already created,
+            I won't provide a tutorial on creating the apps themselves. I'll leave the actual app creation to you.
+            However, I will provide the following tips to ensure that your app includes features that will ensure
+            ensure a smooth deployment to AWS EB, namely:
             <ol>
                 <li>
-                    Your 'application' file, i.e. the the file that contains your main python code (it probably has a
-                    line with <code>from flask import Flask</code> at the top of the file), must be called
-                    <code>application.py</code>.
+                    Name your 'application' file <code>application.py</code>. <i>Not</i> <code>app.py</code> or
+                    <code>taco.py</code> or anything else that's <i>not</i> <code>application.py</code>. Your
+                    application file is the file that contains your main python code. You likely have
+                    <code>from flask import Flask</code> towards the top of the file).
                 </li>
                 <li>
-                    Within your application file (which should be named <code>application.py</code>), ensure that the
-                    variable that you assign to <code>Flask(__name__)</code> is <code>application</code>, <b>not</b>
-                    <code>app</code>. So, you should have a line in a file named <code>application.py</code> with
-                    <code>application = Flask(__name__)</code>.
+                    In your application file, ensure that the value of <code>Flask(__name__)</code> is
+                    <code>application</code>, <i>not</i> <code>app</code> or <code>taco</code> or anything else that's
+                    <i>not</i> <code>application</code>.
                 </li>
                 <li>
-                    At the end of your application file, before to set the <code>"__name__"</code> attribute equal to
-                    <code>"__main__"</code>. So, you should have a small clause at the end of the file that looks
-                    something (or exactly) like this:<br>
+                    In your application file, ensure that the value of <code>"__name__"</code> is
+                    <code>"__main__"</code>, <i>not</i> <code>"__app__"</code> or <code>"__taco__"</code> or anything
+                    else that's <i>not</i> <code>"__main__"</code>. So, at the end of your application file, you should
+                    have a short function that looks something like this:<br>
                     <code>
                         if __name__ == "__main__":<br>
                         &emsp;&emsp;&emsp;&emsp;application.debug = False<br>
-                        &emsp;&emsp;&emsp;&emsp;application.run()</code>
+                        &emsp;&emsp;&emsp;&emsp;application.run()
+                    </code>
                 </li>
             </ol>
         </p>
         <br>
         <p>
-            <b>Step 3: Make an AWS Account!</b><br><a href="https://aws.amazon.com/">Here's</a> the link to visit to
-            create an AWS account. Two notes about setting up an  account:
+            <b>Step 3: Make an AWS Account!</b><br>To create an account in AWS, start
+            <a href="https://portal.aws.amazon.com/billing/signup?type=enterprise#/start">here</a>, and simply follow
+            the prompts. It takes less than 5 minutes to create a basic account with a login and password, but after
+            you create the account, you'll also want to do the following:
             <ol>
                 <li>
                     If you'd like an overview of all of the steps involved in creating an account,

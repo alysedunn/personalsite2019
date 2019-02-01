@@ -21,7 +21,7 @@ def single():
     return render_template('single.html')
 
 
-@application.route('/key_terms_and_definitions')
+@application.route('/key-terms-and-definitions')
 def key_terms_and_definitions():
     return render_template('key_terms_and_definitions.html')
 
