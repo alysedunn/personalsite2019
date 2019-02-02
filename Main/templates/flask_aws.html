@@ -68,15 +68,26 @@
                     <br>
                     <!--Step 0-->
                     <p>
-                        <b>Step 0: Create a <a href="{{ url_for('key_terms_and_definitions') }}">virtual environment!
-                        </a></b><br>To be fair, you can deploy a Flask app locally and to Elastic Beanstalk without
+                        <h2>Step 0: Create a <a href="{{ url_for('key_terms_and_definitions') }}">virtual environment!
+                        </a></h2><br>To be fair, you can deploy a Flask app locally and to Elastic Beanstalk without
                         using a virtual environment. However, I strongly advise against it. The last time that I tried
                         to deploy a Flask app to Elastic Beanstalk <i>without</i> outside of the safety of a virtual
                         environment, I encountered maddening errors about a Python
                         <a href="https://pypi.org/project/six/">six</a> package that I didn't even know was a
-                        requirement for the awscli package that I was actually trying to install. For reference, this
-                        was the actual command and error that I encountered:
+                        requirement for the awscli package that I was actually trying to install. For reference,
+                        <span data-toggle="modal" data-target="#SixError" style="color: #2F2C99;">
+                        this</span> was the actual command and error that I encountered.
                     </p>
+
+                    <!--Six error modal -->
+                    <div id="SixError" class="modal fade" role="dialog">
+                      <div class="modal-dialog modal-content">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Six error</h4>
+                          </div>
+                          <div class="modal-body">
                     <pre><code><b>$ pip install awscli</b><br>
 Collecting awscli
   Using cached https://files.pythonhosted.org/packages/22/13/5c2df72102ab95f13a0b2ad470500327765e163d6867afd6421316fa6692/awscli-1.16.81-py2.py3-none-any.whl
@@ -106,24 +117,20 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 <b>Found existing installation: six 1.4.1
   Cannot uninstall 'six'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
 </b></code></pre>
-                    <br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <p>
                         Believe me, you do <i>not</i> want to spend time debugging this. Just use a virtual environment
                         so that you can avoid this and other issues that arise when attempting to go without one. If
                         you already have pip <a href="https://pip.pypa.io/en/stable/installing/">installed</a>, you can
-                        install virtualenv by running:
+                        install virtualenv by running <code>pip install virtualenv</code>. Once you install virtualenv,
+                        you have the ability to create virtual environment to run your Flask application in, but you
+                        still need to actually create and "activate" that virtual environment. To create a new virtual
+                        environment that you will run your Flask app in, run <code>virtualenv flask_app_env</code>.
+                        Then, to activate the new virtual environment, run <code>source flask_app_env/bin/activate</code>.
                     </p>
-                    <pre><code>pip install virtualenv</code></pre>
-                    <p>
-                        Once you install virtualenv, you have the ability to create virtual environment to run your
-                        Flask application in, but you still need to actually create and "activate" that virtual
-                        environment. To create a new virtual environment that you will run your Flask app in, run:
-                    </p>
-                    <pre><code>virtualenv flask_app_env</code></pre>
-                    <p>
-                        Then, to activate the new virtual environment, run:
-                    </p>
-                    <pre><code>source flask_app_env/bin/activate</code></pre>
                     <p>
                         Now you're ready to start building your Flask app, <i>within</i> your virtual environment of
                         course.
@@ -132,7 +139,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                     <br>
                     <!--Step 1-->
                     <p>
-                        <b>Step 1: Make a Flask app!</b><br>If you're a true beginner, just getting a flask app up and
+                        <h2>Step 1: Make a Flask app!</h2><br>If you're a true beginner, just getting a flask app up and
                         running may be a feat in and of itself; much less deploying it to Elastic Beanstalk.
                         Fortunately, there are lots of great tutorials like
                         <a href="http://flask.pocoo.org/docs/1.0/tutorial/">this</a> one that will walk you through
@@ -170,7 +177,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                     <br>
                     <!--Step 2-->
                     <p>
-                        <b>Step 2: Make an AWS Account!</b><br>To create an AWS account:
+                        <h2>Step 2: Make an AWS Account!</h2><br>To create an AWS account:
                     </p>
                     <ol>
                         <li>
@@ -180,62 +187,148 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                         <li>
                             Once you've created and logged into your new AWS account, navigate to the search bar on the
                             main landing page, type in "iam", and select the option presented in the dropdown.
-                            <img class="img-responsive"
-                                 src="static/img/aws_screenshot_2_search.png"
-                                 alt="AWS console homepage search bar IAM"
-                                 style="border: 1px solid;">
+
+                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                               data-toggle="modal" data-target="#IAMSearch" style="color: #2F2C99;"></i>
+
+                            <!--User confirmation modal -->
+                            <div id="IAMSearch" class="modal fade" role="dialog">
+                              <div class="modal-dialog modal-content">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">User confirmation page</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <img class="img-responsive" src="static/img/aws_screenshot_2_search.png"
+                                         alt="AWS console homepage search bar IAM">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                         </li>
-                        <br>
-                        <br>
                         <li>
                             On the resulting page, select "Users" from the left hand panel, and click on the blue
                             "Add User" button.
-                            <img class="img-responsive"
-                                 src="static/img/aws_screenshot_3_iam_users.png"
-                                 alt="AWS IAM Users menu"
-                                 style="border: 1px solid;">
+
+                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                               data-toggle="modal" data-target="#IAMUsersMenu" style="color: #2F2C99;"></i>
+
+                            <!--User confirmation modal -->
+                            <div id="IAMUsersMenu" class="modal fade" role="dialog">
+                              <div class="modal-dialog modal-content">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Add User</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <img class="img-responsive" src="static/img/aws_screenshot_3_iam_users.png"
+                                         alt="AWS IAM Users menu">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                         </li>
-                        <br>
-                        <br>
                         <li>
                             Enter your desired username (in the screenshot, I use my name, "Alyse"), and be sure to
                             select the "Programmatic Access" type from the two access type options. Once complete,
                             select "Next: Permissions".
-                            <img class="img-responsive"
-                                 src="static/img/aws_screenshot_4_create_user.png"
-                                 alt="AWS IAM Users menu add username and access type"
-                                 style="border: 1px solid;">
+
+                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                               data-toggle="modal" data-target="#CreateUser" style="color: #2F2C99;"></i>
+
+                            <!--User confirmation modal -->
+                            <div id="CreateUser" class="modal fade" role="dialog">
+                              <div class="modal-dialog modal-content">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">User confirmation page</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <img class="img-responsive" src="static/img/aws_screenshot_4_create_user.png"
+                                         alt="AWS IAM Users menu add username and access type">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                         </li>
-                        <br>
-                        <br>
                         <li>
                             Enter your desired group name (in the screenshot, I use the name "Admins"), and select the
-                            "Administrator Access" group from the list of available policies."
-                            <img class="img-responsive"
-                                 src="static/img/aws_screenshot_5_create_admin_group.png"
-                                 alt="AWS IAM Users menu add group name and select access policy"
-                                 style="border: 1px solid;">
+                            "Administrator Access" group from the list of available policies.
+
+                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                               data-toggle="modal" data-target="#CreateAdminGroup" style="color: #2F2C99;"></i>
+
+                            <!--User confirmation modal -->
+                            <div id="CreateAdminGroup" class="modal fade" role="dialog">
+                              <div class="modal-dialog modal-content">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Assign Access Type to User</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <img class="img-responsive" src="static/img/aws_screenshot_5_create_admin_group.png"
+                                         alt="AWS IAM Users menu create admin group">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                         </li>
-                        <br>
-                        <br>
                         <li>
                             The resulting screen will confirm that you are adding your newly created user to the
                             "Admins" user group.
-                            <img class="img-responsive"
-                                 src="static/img/aws_screenshot_6_assign_user_to_group.png"
-                                 alt="AWS IAM Users access confirmation page"
-                                 style="border: 1px solid;">
+
+                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                               data-toggle="modal" data-target="#UserAccessConfirmation" style="color: #2F2C99;"></i>
+
+                            <!--User confirmation modal -->
+                            <div id="UserAccessConfirmation" class="modal fade" role="dialog">
+                              <div class="modal-dialog modal-content">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Assign Access Policy to User</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <img class="img-responsive" src="static/img/aws_screenshot_6_assign_user_to_group.png"
+                                         alt="AWS IAM Users menu assign user to group">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                         </li>
-                        <br>
-                        <br>
                         <li>
                             Continue clicking the blue "Next" buttons on the lower, right hand corner of the page until
                             you see the final confirmation page that the user has been successfully created and added
                             to an access group:
-                            <img class="img-responsive"
-                                 src="static/img/aws_screenshot_7_user_confirmation.png"
-                                 alt="AWS IAM Users final confirmation page"
-                                 style="border: 1px solid;">
+
+                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                               data-toggle="modal" data-target="#UserFinalConfirmation" style="color: #2F2C99;"></i>
+
+                            <!--User confirmation modal -->
+                            <div id="UserFinalConfirmation" class="modal fade" role="dialog">
+                              <div class="modal-dialog modal-content">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Assign Access Group to User</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <img class="img-responsive" src="static/img/aws_screenshot_7_user_confirmation.png"
+                                         alt="AWS IAM Users create user final confirmation page">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                         </li>
                     </ol>
                     <p>
@@ -246,7 +339,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                     <br>
                     <!--Step 3-->
                     <p>
-                        <b>Step 3: Deploy to AWS!</b><br>Even though we created a user and permissions via the UI, we
+                        <h2>Step 3: Deploy to AWS!</h2><br>Even though we created a user and permissions via the UI, we
                         will use the command line to proceed with the actual deployment. For the deployment, run the
                         commands below, in order:
                     </p>
@@ -268,10 +361,26 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                             for your preferred region. I always manually enter a number of the region that's closest to
                             where I'm physically located. I live and work in New York City, so I enter a 1 for the
                             <code>us-east-1</code> region.
-                            <img class="img-responsive"
-                                 src="static/img/eb_init_and_default_region.png"
-                                 alt="AWS console homepage search bar IAM"
-                                 style="border: 1px solid;">
+
+                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                               data-toggle="modal" data-target="#EbInitAndResults" style="color: #2F2C99;"></i>
+
+                            <!--Eb init and results modal -->
+                            <div id="EbInitAndResults" class="modal fade" role="dialog">
+                              <div class="modal-dialog modal-content">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">eb init and results</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <img class="img-responsive" src="static/img/eb_init_and_default_region.png"
+                                         alt="AWS console homepage search bar IAM">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                         </li>
                     </ol>
 
