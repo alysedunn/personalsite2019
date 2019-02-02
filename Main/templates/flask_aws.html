@@ -1,264 +1,262 @@
 {% extends "bloglayout.html" %}
 {% block content %}
-<style>
-    /*img {*/
-  /*float: right;*/
-/*}*/
-</style>
-
-
 <section id="entity_section" class="entity_section">
-<div class="container">
-<div class="row">
-<div class="col-md-12">
-<div class="entity_wrapper">
-    <div class="entity_title">
-        <h1>How to Deploy your Python Flask app to AWS Elastic Beanstalk</h1>
-    </div>
-    <!-- entity_title -->
 
-    <div class="entity_meta">
-        1Feb- 2019
-    </div>
-    <!-- entity_meta -->
+    <div class="container">
 
-    <!--<div class="entity_social">-->
-        <!--<a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>-->
-        <!--<a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a>-->
-        <!--<a href="#" class="icons-sm fb-ic"><i class="fa fa-linkedin-square"></i></a>-->
-    <!--</div>-->
-    <!-- entity_social -->
+        <div class="row">
 
-    <div class="row">
-        <div class="column" >
-            <img class="img-responsive" src="static/img/flask-python.png" alt="Python flask" width="50%" style="float: left; display:block; margin-left: auto; margin-right: auto;">
+            <div class="col-md-12">
+
+                <div class="entity_wrapper">
+
+                    <!--Div for blog title-->
+                    <div class="entity_title">
+                        <h1>How to Deploy your Python Flask app to AWS Elastic Beanstalk</h1>
+                    </div>
+
+                    <!--Div for blog date-->
+                    <div class="entity_meta">
+                        1Feb- 2019
+                    </div>
+
+                    <!--Div for blog image(s)-->
+                    <div class="row">
+                        <div class="column">
+                            <img class="img-responsive"
+                                 src="static/img/flask-python.png"
+                                 alt="Python flask"
+                                 width="50%"
+                                 style="float: left; display:block; margin-left: auto; margin-right: auto;">
+                        </div>
+                        <div class="column">
+                            <img class="img-responsive"
+                                 src="static/img/aws_eb.png"
+                                 alt="AWS Elastic Beanstalk"
+                                 width="50%"
+                                 style="float: right; display:block; margin-left: auto; margin-right: auto;">
+                        </div>
+                    </div>
+
+                    <!--Blog content/copy-->
+                    <!--Intro paragraph-->
+                    <p>
+                        Three years ago, I was a new developer trying (and failing) to deploy my simple
+                        <a href="https://www.python.org/">Python</a>
+                        <a href="http://flask.pocoo.org/">flask</a> application to
+                        <a href="https://aws.amazon.com/">Amazon Web Services</a>' (AWS)
+                        <a href="https://aws.amazon.com/elasticbeanstalk/">Elastic Beanstalk</a>. In the process, I
+                        reviewed <a href="http://flask.pocoo.org/">this</a> documentation from Flask,
+                        <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html">this
+                        </a>documentation from AWS, and
+                        <a href="https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80">this</a>
+                        blog post on using the two together. All  were helpful, but I was so new to development that
+                        even with these and other resources, I found the entire process terribly frustrating as I ran
+                        into one bug after another and tried to Google my way through each one of them. I still run
+                        into some of those bugs when I deploy my Flask apps to Elastic Beanstalk today, but fortunately
+                        after years of seeing them, I can power through them a lot more quickly than I used to. In an
+                        effort to continue making this process as seamless as possible for myself, and to assist others
+                        who may be struggling, I created the following step-by-step guide to Flask apps to Elastic
+                        Beanstalk. Note that this tutorial assumes that you are using Python 2.7.
+                    </p>
+                    <p>
+                        Note for those new to Python, Flask, AWS, or all three: Be sure to click on the links
+                        throughout this post for more detailed information on concepts, terms, and tools that may be
+                        new to you.
+                    </p>
+
+                    <br>
+                    <!--Step 0-->
+                    <p>
+                        <b>Step 0: Create a <a href="{{ url_for('key_terms_and_definitions') }}">virtual environment!
+                        </a></b><br>To be fair, you can deploy a Flask app locally and to Elastic Beanstalk without
+                        using a virtual environment. However, I strongly advise against it. The last time that I tried
+                        to deploy a Flask app to Elastic Beanstalk <i>without</i> outside of the safety of a virtual
+                        environment, I encountered maddening errors about a Python
+                        <a href="https://pypi.org/project/six/">six</a> package that I didn't even know was a
+                        requirement for the awscli package that I was actually trying to install. For reference, this
+                        was the actual command and error that I encountered:
+                    </p>
+                    <pre><code><b>$ pip install awscli</b>
+Collecting awscli
+  Using cached https://files.pythonhosted.org/packages/22/13/5c2df72102ab95f13a0b2ad470500327765e163d6867afd6421316fa6692/awscli-1.16.81-py2.py3-none-any.whl
+Collecting s3transfer<0.2.0,>=0.1.12 (from awscli)
+  Using cached https://files.pythonhosted.org/packages/d7/14/2a0004d487464d120c9fb85313a75cd3d71a7506955be458eebfe19a6b1d/s3transfer-0.1.13-py2.py3-none-any.whl
+Collecting botocore==1.12.71 (from awscli)
+  Using cached https://files.pythonhosted.org/packages/50/c0/cd4f8bec8a10876f0ce34f0cf264fda04e09df41d1a473a43f890c71fffa/botocore-1.12.71-py2.py3-none-any.whl
+Collecting rsa<=3.5.0,>=3.1.2 (from awscli)
+  Using cached https://files.pythonhosted.org/packages/e1/ae/baedc9cb175552e95f3395c43055a6a5e125ae4d48a1d7a924baca83e92e/rsa-3.4.2-py2.py3-none-any.whl
+Collecting colorama<=0.3.9,>=0.2.5 (from awscli)
+  Using cached https://files.pythonhosted.org/packages/db/c8/7dcf9dbcb22429512708fe3a547f8b6101c0d02137acbd892505aee57adf/colorama-0.3.9-py2.py3-none-any.whl
+Requirement already satisfied: docutils>=0.10 in /Library/Python/2.7/site-packages (from awscli) (0.14)
+Collecting PyYAML<=3.13,>=3.10 (from awscli)
+Requirement already satisfied: futures<4.0.0,>=2.2.0; python_version == "2.6" or python_version == "2.7" in /Library/Python/2.7/site-packages (from s3transfer<0.2.0,>=0.1.12->awscli) (3.2.0)
+Requirement already satisfied: jmespath<1.0.0,>=0.7.1 in /Library/Python/2.7/site-packages (from botocore==1.12.71->awscli) (0.9.3)
+Collecting python-dateutil<3.0.0,>=2.1; python_version >= "2.7" (from botocore==1.12.71->awscli)
+  Using cached https://files.pythonhosted.org/packages/74/68/d87d9b36af36f44254a8d512cbfc48369103a3b9e474be9bdfe536abfc45/python_dateutil-2.7.5-py2.py3-none-any.whl
+Collecting urllib3<1.25,>=1.20; python_version == "2.7" (from botocore==1.12.71->awscli)
+  Using cached https://files.pythonhosted.org/packages/62/00/ee1d7de624db8ba7090d1226aebefab96a2c71cd5cfa7629d6ad3f61b79e/urllib3-1.24.1-py2.py3-none-any.whl
+Collecting pyasn1>=0.1.3 (from rsa<=3.5.0,>=3.1.2->awscli)
+  Using cached https://files.pythonhosted.org/packages/7b/7c/c9386b82a25115cccf1903441bba3cbadcfae7b678a20167347fa8ded34c/pyasn1-0.4.5-py2.py3-none-any.whl
+Collecting six>=1.5 (from python-dateutil<3.0.0,>=2.1; python_version >= "2.7"->botocore==1.12.71->awscli)
+  Using cached https://files.pythonhosted.org/packages/73/fb/00a976f728d0d1fecfe898238ce23f502a721c0ac0ecfedb80e0d88c64e9/six-1.12.0-py2.py3-none-any.whl
+matplotlib 1.3.1 requires nose, which is not installed.
+matplotlib 1.3.1 requires tornado, which is not installed.
+Installing collected packages: six, python-dateutil, urllib3, botocore, s3transfer, pyasn1, rsa, colorama, PyYAML, awscli
+<b>Found existing installation: six 1.4.1
+  Cannot uninstall 'six'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+</b></code></pre>
+                    <br>
+                    <p>
+                        Believe me, you do <i>not</i> want to spend time debugging this. Just use a virtual environment
+                        so that you can avoid this and other issues that arise when attempting to go without one. If
+                        you already have pip <a href="https://pip.pypa.io/en/stable/installing/">installed</a>, you can
+                        install virtualenv by running:
+                    </p>
+                    <pre><code>pip install virtualenv</code></pre>
+                    <p>
+                        Once you install virtualenv, you have the ability to create virtual environment to run your
+                        Flask application in, but you still need to actually create and "activate" that virtual
+                        environment. To create a new virtual environment that you will run your Flask app in, run:
+                    </p>
+                    <pre><code>virtualenv flask_app_env</code></pre>
+                    <p>
+                        Then, to activate the new virtual environment, run:
+                    </p>
+                    <pre><code>source flask_app_env/bin/activate</code></pre>
+                    <p>
+                        Now you're ready to start building your Flask app, <i>within</i> your virtual environment of
+                        course.
+                    </p>
+
+                    <br>
+                    <!--Step 1-->
+                    <p>
+                        <b>Step 1: Make a Flask app!</b><br>If you're a true beginner, just getting a flask app up and
+                        running may be a feat in and of itself; much less deploying it to Elastic Beanstalk.
+                        Fortunately, there are lots of great tutorials like
+                        <a href="http://flask.pocoo.org/docs/1.0/tutorial/">this</a> one that will walk you through
+                        making your first Flask app, step by step. This blog is a Flask app, so if you don't want to go
+                        through the trouble of making your own Flask app right now, you can also just clone this one
+                        from GitHub by visiting <a href="https://github.com/alysedunn/personalsite2019">this</a> link.
+                        Since the focus of this post is on <i>deploying</i> Flask apps as opposed to creating them, I
+                        won't go into detail about creating the app. That said, in order to ensure a smooth deployment
+                        to Elastic Beanstalk, I strongly suggest that your Flask app's 'application' file (i.e. the file
+                        that contains your main Python code):
+                    </p>
+                    <ol>
+                        <li>
+                            Is named <code>application.py</code>
+                        </li>
+                        <li>
+                            Sets the value of <code>Flask(__name__)</code> equal to <code>application</code>.
+                        </li>
+                        <li>
+                            Sets the value of <code>"__name__"</code> to <code>"__main__"</code>.
+                        </li>
+                    </ol>
+                    <p>
+                        With all of the suggested updates for your application file above, your final application file
+                        will likely look like a simplified version of
+                        <a href="https://github.com/alysedunn/personalsite2019/blob/master/Main/application.py">this</a>.
+                    </p>
+
+                    <br>
+                    <!--Step 2-->
+                    <p>
+                        <b>Step 2: Make an AWS Account!</b><br>To create an AWS account:
+                    </p>
+                    <ol>
+                        <li>
+                            Create an account
+                            <a href="https://portal.aws.amazon.com/billing/signup?type=enterprise#/start">here.</a>
+                        </li>
+                        <li>
+                            Once you've created and logged into your new AWS account, navigate to the search bar on the
+                            main landing page, type in "iam", and select the option presented in the dropdown.
+                            <img class="img-responsive"
+                                 src="static/img/aws_screenshot_2_search.png"
+                                 alt="AWS console homepage search bar IAM"
+                                 style="border: 1px solid;">
+                        </li>
+                        <br>
+                        <br>
+                        <li>
+                            On the resulting page, select "Users" from the left hand panel, and click on the blue
+                            "Add User" button.
+                            <img class="img-responsive"
+                                 src="static/img/aws_screenshot_3_iam_users.png"
+                                 alt="AWS IAM Users menu"
+                                 style="border: 1px solid;">
+                        </li>
+                        <br>
+                        <br>
+                        <li>
+                            Enter your desired username (in the screenshot, I use my name, "Alyse"), and be sure to
+                            select the "Programmatic Access" type from the two access type options. Once complete,
+                            select "Next: Permissions".
+                            <img class="img-responsive"
+                                 src="static/img/aws_screenshot_4_create_user.png"
+                                 alt="AWS IAM Users menu add username and access type"
+                                 style="border: 1px solid;">
+                        </li>
+                        <br>
+                        <br>
+                        <li>
+                            Enter your desired group name (in the screenshot, I use the name "Admins"), and select the
+                            "Administrator Access" group from the list of available policies."
+                            <img class="img-responsive"
+                                 src="static/img/aws_screenshot_5_create_admin_group.png"
+                                 alt="AWS IAM Users menu add group name and select access policy"
+                                 style="border: 1px solid;">
+                        </li>
+                        <br>
+                        <br>
+                        <li>
+                            The resulting screen will confirm that you are adding your newly created user to the
+                            "Admins" user group.
+                            <img class="img-responsive"
+                                 src="static/img/aws_screenshot_6_assign_user_to_group.png"
+                                 alt="AWS IAM Users menu add group name and select access policy"
+                                 style="border: 1px solid;">
+                        </li>
+                        <br>
+                        <br>
+                        <li>
+                            Continue clicking the blue "Next" buttons on the lower, right hand corner of the page until
+                            you see the final confirmation page that the user has been successfully created and added
+                            to an access group:
+                            <img class="img-responsive"
+                                 src="static/img/aws_screenshot_7_user_confirmation.png"
+                                 alt="AWS IAM Users menu add group name and select access policy"
+                                 style="border: 1px solid;">
+                        </li>
+                    </ol>
+                    <p>
+                        Note that AWS doesn't charge new users to use basic tools like the ones we'll be using for the
+                        first year. However, they <i>will</i> start charging you after that first year. For context,
+                        AWS charges me $_ per month, so $_ per year, for this blog flask app.
+                    </p>
+
+                    <br>
+                    <!--Step 3-->
+                    <p>
+                        <b>Step 3: Deploy to AWS!</b><br>This is the hardest part. Now, typically, I strongly advise
+                        against anyone blindly copying and pasting commands that they find online unless you know
+                        exactly what they're doing. However, if you're new to Flask, Python, and/or AWS, I do recommend
+                        copy/pasting in this tutorial. If you want more information about exactly what each command is
+                        doing (which I do recommend reviewing), simply select the
+                        <i class="fa fa-question-circle" aria-hidden="true"></i> icon next to each command for more
+                        info.
+                    </p>
+
+                    <br>
+            </div>
+
         </div>
-        <div class="column">
-            <img class="img-responsive" src="static/img/aws_eb.png" alt="AWS Elastic Beanstalk" width="50%" style="float: right; display:block; margin-left: auto; margin-right: auto;">
-        </div>
+
     </div>
-    <!-- entity_thumb -->
 
-    <div class="entity_content">
-        <p>
-            Three years ago, I was a new developer trying (and failing) to deploy my simple
-            <a href="https://www.python.org/">Python</a> <a href="http://flask.pocoo.org/">flask</a> application to
-            <a href="https://aws.amazon.com/">Amazon Web Services</a>' (AWS)
-            <a href="https://aws.amazon.com/elasticbeanstalk/">Elastic Beanstalk</a> (EB). In the process, I reviewed
-            <a href="http://flask.pocoo.org/">this</a> documentation from Flask,
-            <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html">this</a>
-            documentation from AWS, and
-            <a href="https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80">this</a> blog post
-            on using the two together. All  were helpful, but I was so new to development that even with these and
-            other resources, I found the entire process terribly frustrating as I ran into one bug after
-            another and tried to Google my way through each one of them. I still run into some of those bugs when I
-            deploy my Flask apps to AWS today, but fortunately after years of seeing them, I can power through them a
-            lot more quickly than I used to. In an effort to continue making this process as seamless as possible for
-            myself, and to assist others who may be struggling, I present the following step-by-step guide to deploying
-            your own flask app to AWS Elastic Beanstalk. The example assumes that you are using Python 2.7. Note for
-            those new to Python, Flask, AWS, or all three: Be sure to click on the links and
-            <i class="fa fa-question-circle" aria-hidden="true" style="color: #2F2C99;"></i> icons throughout this
-            post for more detailed information on concepts, terms, and tools that may be new to you.
-        </p>
-        <br>
-        <b>Step 1: Create a <a href="{{ url_for('key_terms_and_definitions') }}">virtual environment!</a></b><br>
-            To be fair, you can get a Flask app up and running successfully without the use of a virtual environment.
-            You might even be able to get that app deployed to EB without using a virtual environment. However, I ran
-            into various errors in step 4 below when I did <i>not</i>use a virtual environment. So, if you want this
-            deployment to go smoothly, I recommend starting here. To create a virtual environment, you must first
-            install virtualenv by running
-            be installed by running <code>pip install virtualenv</code>.
-        </p>
-        <br>
-        <p>
-            <b>Step 2: Make a flask app!</b><br>If you're a true beginner, getting a flask app up and running
-            locally might be a feat in and of itself. Fortunately, there are many great tutorials that can help, like
-            <a href="http://flask.pocoo.org/docs/1.0/tutorial/">this</a> one, from the official creators of flask.
-            Since the focus of this post is on <i>deploying</i> flask apps that you've already created,
-            I won't provide a tutorial on creating the apps themselves. I'll leave the actual app creation to you.
-            However, I will provide the following tips to ensure that your app includes features that will ensure
-            ensure a smooth deployment to AWS EB, namely:
-            <ol>
-                <li>
-                    Name your 'application' file <code>application.py</code>. <i>Not</i> <code>app.py</code> or
-                    <code>taco.py</code> or anything else that's <i>not</i> <code>application.py</code>. Your
-                    application file is the file that contains your main python code. You likely have
-                    <code>from flask import Flask</code> towards the top of the file).
-                </li>
-                <li>
-                    In your application file, ensure that the value of <code>Flask(__name__)</code> is
-                    <code>application</code>, <i>not</i> <code>app</code> or <code>taco</code> or anything else that's
-                    <i>not</i> <code>application</code>.
-                </li>
-                <li>
-                    In your application file, ensure that the value of <code>"__name__"</code> is
-                    <code>"__main__"</code>, <i>not</i> <code>"__app__"</code> or <code>"__taco__"</code> or anything
-                    else that's <i>not</i> <code>"__main__"</code>. So, at the end of your application file, you should
-                    have a short function that looks something like this:<br>
-                    <code>
-                        if __name__ == "__main__":<br>
-                        &emsp;&emsp;&emsp;&emsp;application.debug = False<br>
-                        &emsp;&emsp;&emsp;&emsp;application.run()
-                    </code>
-                </li>
-            </ol>
-        </p>
-        <br>
-        <p>
-            <b>Step 3: Make an AWS Account!</b><br>To create an account in AWS, start
-            <a href="https://portal.aws.amazon.com/billing/signup?type=enterprise#/start">here</a>, and simply follow
-            the prompts. It takes less than 5 minutes to create a basic account with a login and password, but after
-            you create the account, you'll also want to do the following:
-            <ol>
-                <li>
-                    If you'd like an overview of all of the steps involved in creating an account,
-                    <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">
-                        this</a> outlines that process.
-                </li>
-                <li>
-                    You must enter a credit card in order to sign up for an AWS account. How much will you get charged
-                    on your credit card when you register? Well that depends on how much you plan on utilizing AWS, but
-                    for context, this blog is a flask app that I run on EB, and AWS bills me about $20 per month to
-                    keep it up and running.
-                </li>
-            </ol>
-        </p>
-                <br>
-        <p>
-            <b>Step 4: Deploy to AWS!</b><br>This is the hardest part. Now, typically, I strongly advise against anyone
-            blindly copying and pasting commands that they find online unless you know exactly what they're doing.
-            However, if you're new to Flask, Python, and/or AWS, I do recommend copy/pasting in this tutorial. If you
-            want more information about exactly what each command is doing (which I do recommend reviewing), simply
-            select the <i class="fa fa-question-circle" aria-hidden="true"></i> icon next to each command for more info.
-        </p>
-        <br>
-    </div>
-    <!-- entity_content -->
-
-    <!--<div class="entity_footer">-->
-        <!--<div class="entity_tag">-->
-            <!--<span class="blank"><a href="#">AWS</a></span>-->
-            <!--<span class="blank"><a href="#">Flask</a></span>-->
-            <!--<span class="blank"><a href="#">Python</a></span>-->
-            <!--<span class="blank"><a href="#">Tech</a></span>-->
-            <!--<span class="blank"><a href="#">Tutorials</a></span>-->
-        <!--</div>-->
-        <!--&lt;!&ndash; entity_tag &ndash;&gt;-->
-
-        <!--<div class="entity_social">-->
-            <!--<span><i class="fa fa-share-alt"></i>424 <a href="#">Shares</a> </span>-->
-            <!--<span><i class="fa fa-comments-o"></i>4 <a href="#">Comments</a> </span>-->
-        <!--</div>-->
-        <!--&lt;!&ndash; entity_social &ndash;&gt;-->
-
-    <!--</div>-->
-    <!-- entity_footer -->
-
-</div>
-<!-- entity_wrapper -->
-
-<!--<div class="readers_comment">-->
-    <!--<div class="entity_inner__title header_purple">-->
-        <!--<h2>Comments</h2>-->
-    <!--</div>-->
-    <!--&lt;!&ndash; entity_title &ndash;&gt;-->
-
-    <!--<div class="media">-->
-        <!--<div class="media-left">-->
-            <!--<a href="#">-->
-                <!--<img alt="64x64" class="media-object" data-src="static/img/reader_img1.jpg"-->
-                     <!--src="static/img/reader_img1.jpg" data-holder-rendered="true">-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--<div class="media-body">-->
-            <!--<h2 class="media-heading"><a href="#">Sr. Ryan</a></h2>-->
-            <!--But who has any right to find fault with a man who chooses to enjoy a pleasure that has-->
-            <!--no annoying consequences, or one who avoids a pain that produces no resultant pleasure?-->
-
-            <!--<div class="entity_vote">-->
-                <!--<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>-->
-                <!--<a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>-->
-                <!--<a href="#"><span class="reply_ic">Reply </span></a>-->
-            <!--</div>-->
-            <!--<div class="media">-->
-                <!--<div class="media-left">-->
-                    <!--<a href="#">-->
-                        <!--<img alt="64x64" class="media-object" data-src="static/img/reader_img2.jpg"-->
-                             <!--src="static/img/reader_img2.jpg" data-holder-rendered="true">-->
-                    <!--</a>-->
-                <!--</div>-->
-                <!--<div class="media-body">-->
-                    <!--<h2 class="media-heading"><a href="#">Admin</a></h2>-->
-                    <!--But who has any right to find fault with a man who chooses to enjoy a pleasure-->
-                    <!--that has no annoying consequences, or one who avoids a pain that produces no-->
-                    <!--resultant pleasure?-->
-
-                    <!--<div class="entity_vote">-->
-                        <!--<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>-->
-                        <!--<a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>-->
-                        <!--<a href="#"><span class="reply_ic">Reply </span></a>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-    <!--</div>-->
-    <!--&lt;!&ndash; media end &ndash;&gt;-->
-
-    <!--<div class="media">-->
-        <!--<div class="media-left">-->
-            <!--<a href="#">-->
-                <!--<img alt="64x64" class="media-object" data-src="static/img/reader_img3.jpg"-->
-                     <!--src="static/img/reader_img3.jpg" data-holder-rendered="true">-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--<div class="media-body">-->
-            <!--<h2 class="media-heading"><a href="#">S. Joshep</a></h2>-->
-            <!--But who has any right to find fault with a man who chooses to enjoy a pleasure that has-->
-            <!--no annoying consequences, or one who avoids a pain that produces no resultant pleasure?-->
-
-            <!--<div class="entity_vote">-->
-                <!--<a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>-->
-                <!--<a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>-->
-                <!--<a href="#"><span class="reply_ic">Reply </span></a>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--&lt;!&ndash; media end &ndash;&gt;-->
-<!--</div>-->
-<!--&lt;!&ndash;Readers Comment&ndash;&gt;-->
-
-<!--<div class="entity_comments">-->
-    <!--<div class="entity_inner__title header_black">-->
-        <!--<h2>Add a Comment</h2>-->
-    <!--</div>-->
-    <!--&lt;!&ndash;Entity Title &ndash;&gt;-->
-
-    <!--<div class="entity_comment_from">-->
-        <!--<form>-->
-            <!--<div class="form-group">-->
-                <!--<input type="text" class="form-control" id="inputName" placeholder="Name">-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<input type="text" class="form-control" id="inputEmail" placeholder="Email">-->
-            <!--</div>-->
-            <!--<div class="form-group comment">-->
-                <!--<textarea class="form-control" id="inputComment" placeholder="Comment"></textarea>-->
-            <!--</div>-->
-
-            <!--<button type="submit" class="btn btn-submit red">Submit</button>-->
-        <!--</form>-->
-    <!--</div>-->
-    <!--&lt;!&ndash;Entity Comments From &ndash;&gt;-->
-<!--</div>-->
-<!--Entity Comments -->
-</div>
-<!--Left Section-->
-<!--Right Section-->
-</div>
-<!-- row -->
-</div>
-<!-- container -->
 </section>
-<!-- Entity Section Wrapper -->
+
 {% endblock %}
