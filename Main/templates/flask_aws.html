@@ -77,7 +77,7 @@
                         requirement for the awscli package that I was actually trying to install. For reference, this
                         was the actual command and error that I encountered:
                     </p>
-                    <pre><code><b>$ pip install awscli</b>
+                    <pre><code><b>$ pip install awscli</b><br>
 Collecting awscli
   Using cached https://files.pythonhosted.org/packages/22/13/5c2df72102ab95f13a0b2ad470500327765e163d6867afd6421316fa6692/awscli-1.16.81-py2.py3-none-any.whl
 Collecting s3transfer<0.2.0,>=0.1.12 (from awscli)
@@ -159,6 +159,12 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                         With all of the suggested updates for your application file above, your final application file
                         will likely look like a simplified version of
                         <a href="https://github.com/alysedunn/personalsite2019/blob/master/Main/application.py">this</a>.
+                        I strongly advise running your app locally before you go any further. To run your flask app
+                        locally, cd into your <code>main</code> directory, run the command <code>flask run</code>, and
+                        navigate to <code>http://127.0.0.1:5000</code> in your address bar. You should see your app in
+                        the browser at this point. If you don't, go back and review what you may have missed when
+                        creating your app. You definitely want to resolve any issues that you encounter locally before
+                        deploying to AWS, because if you don't, the debugging process will only get more difficult.
                     </p>
 
                     <br>
@@ -217,7 +223,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                             "Admins" user group.
                             <img class="img-responsive"
                                  src="static/img/aws_screenshot_6_assign_user_to_group.png"
-                                 alt="AWS IAM Users menu add group name and select access policy"
+                                 alt="AWS IAM Users access confirmation page"
                                  style="border: 1px solid;">
                         </li>
                         <br>
@@ -228,27 +234,46 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                             to an access group:
                             <img class="img-responsive"
                                  src="static/img/aws_screenshot_7_user_confirmation.png"
-                                 alt="AWS IAM Users menu add group name and select access policy"
+                                 alt="AWS IAM Users final confirmation page"
                                  style="border: 1px solid;">
                         </li>
                     </ol>
                     <p>
                         Note that AWS doesn't charge new users to use basic tools like the ones we'll be using for the
-                        first year. However, they <i>will</i> start charging you after that first year. For context,
-                        AWS charges me $_ per month, so $_ per year, for this blog flask app.
+                        first year. However, they <i>will</i> start charging you after that first year.
                     </p>
 
                     <br>
                     <!--Step 3-->
                     <p>
-                        <b>Step 3: Deploy to AWS!</b><br>This is the hardest part. Now, typically, I strongly advise
-                        against anyone blindly copying and pasting commands that they find online unless you know
-                        exactly what they're doing. However, if you're new to Flask, Python, and/or AWS, I do recommend
-                        copy/pasting in this tutorial. If you want more information about exactly what each command is
-                        doing (which I do recommend reviewing), simply select the
-                        <i class="fa fa-question-circle" aria-hidden="true"></i> icon next to each command for more
-                        info.
+                        <b>Step 3: Deploy to AWS!</b><br>Even though we created a user and permissions via the UI, we
+                        will use the command line to proceed with the actual deployment. For the deployment, run the
+                        commands below, in order:
                     </p>
+                    <ol>
+                        <li>
+                            <code>cd</code> to into your application's <code>Main</code> directory. If you don't run
+                            everything from the <code>Main</code> directory, when you go to deploy, your application
+                            will throw errors not covered in this tutorial.
+                        </li>
+                        <li>
+                            In your application's <code>Main</code> directory, run <code>eb init</code>. This
+                            initializes Elastic Beanstalk. It will also create a git-ignored directory in your
+                            <code>Main</code> directory. Do not delete or move this directory. If you do, your deploy
+                            will not be successful.
+                        </li>
+                        <li>
+                            After you run <code>eb init</code>, you'll be prompted to enter your default region. You
+                            can either hit enter to have Elastic Beanstalk select for you, or you can enter a number
+                            for your preferred region. I always manually enter a number of the region that's closest to
+                            where I'm physically located. I live and work in New York City, so I enter a 1 for the
+                            <code>us-east-1</code> region.
+                            <img class="img-responsive"
+                                 src="static/img/eb_init_and_default_region.png"
+                                 alt="AWS console homepage search bar IAM"
+                                 style="border: 1px solid;">
+                        </li>
+                    </ol>
 
                     <br>
             </div>
