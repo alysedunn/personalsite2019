@@ -12,12 +12,12 @@
 
                     <!--Div for blog title-->
                     <div class="entity_title">
-                        <h1>How to Deploy your Python Flask app to AWS Elastic Beanstalk</h1>
+                        <h1>How to Deploy your Flask app to AWS Elastic Beanstalk</h1>
                     </div>
 
                     <!--Div for blog date-->
                     <div class="entity_meta">
-                        1Feb- 2019
+                        9Feb- 2019
                     </div>
 
                     <!--Div for blog image(s)-->
@@ -38,57 +38,78 @@
                         </div>
                     </div>
 
-                    <!--Blog content/copy-->
+                    <!--Div for all blog content/copy-->
+                    <div style="text-align: justify;">
                     <!--Intro paragraph-->
-                    <p>
-                        Three years ago, I was a new developer trying (and failing) to deploy my simple
-                        <a href="https://www.python.org/">Python</a>
-                        <a href="http://flask.pocoo.org/">flask</a> application to
-                        <a href="https://aws.amazon.com/">Amazon Web Services</a>' (AWS)
-                        <a href="https://aws.amazon.com/elasticbeanstalk/">Elastic Beanstalk</a>. In the process, I
-                        reviewed <a href="http://flask.pocoo.org/">this</a> documentation from Flask,
-                        <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html">this
-                        </a>documentation from AWS, and
-                        <a href="https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80">this</a>
-                        blog post on using the two together. All  were helpful, but I was so new to development that
-                        even with these and other resources, I found the entire process terribly frustrating as I ran
-                        into one bug after another and tried to Google my way through each one of them. I still run
-                        into some of those bugs when I deploy my Flask apps to Elastic Beanstalk today, but fortunately
-                        after years of seeing them, I can power through them a lot more quickly than I used to. In an
-                        effort to continue making this process as seamless as possible for myself, and to assist others
-                        who may be struggling, I created the following step-by-step guide to Flask apps to Elastic
-                        Beanstalk. Note that this tutorial assumes that you are using Python 2.7.
-                    </p>
-                    <p>
-                        Note for those new to Python, Flask, AWS, or all three: Be sure to click on the links
-                        throughout this post for more detailed information on concepts, terms, and tools that may be
-                        new to you.
-                    </p>
+                        <p>
+                            Three years ago, I was a new developer trying (and failing) to deploy my simple
+                            <a href="https://www.python.org/">Python</a> Flask application to
+                            <a href="https://aws.amazon.com/">Amazon Web Services</a>' (AWS)
+                            <a href="https://aws.amazon.com/elasticbeanstalk/">Elastic Beanstalk</a>. In the process, I
+                            reviewed <a href="http://flask.pocoo.org/">this</a> documentation from the makers of Flask
+                            on how to build Flask apps,
+                            <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html">
+                            this</a> documentation from AWS on getting started with Elastic Beanstalk, and
+                            <a href="https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80">this</a>
+                            blog post on using the two together. All  were helpful, but I was so new to development
+                            that even with these and other resources, I found the entire process painfully frustrating
+                            as I ran into one time-consuming bug after another. I still run into some of those bugs
+                            when I deploy my Flask apps to Elastic Beanstalk today, but fortunately I can power through
+                            them a lot more quickly than I used to. In an effort to continue making this process as
+                            painless as possible for myself, and to assist others who may still be struggling, I
+                            created the following step-by-step guide to deploying Flask apps. A few notes before we get
+                            started:
+                            <ol>
+                                <li>
+                                    This tutorial uses Python version 2.7. If you are using a different version of
+                                    Python, you may need to make adjustments accordingly.
+                                </li>
+                                <li>
+                                    Depending on your comfort level with the language and tools presented, and how much
+                                    you may already have installed on your machine prior to beginning the tutorial,
+                                    completing this tutorial from start to finish will take you at least an hour, so
+                                    you'll want to plan accordingly.
+                                </li>
+                                <li>
+                                    Be sure to check out the <i class="fa fa-picture-o"></i> icons throughout this post
+                                    for helpful screenshots.
+                                </li>
+                            </ol>
+                        </p>
 
-                    <br>
-                    <!--Step 0-->
-                    <p>
-                        <h2>Step 0: Create a <a href="{{ url_for('key_terms_and_definitions') }}">virtual environment!
-                        </a></h2><br>To be fair, you can deploy a Flask app locally and to Elastic Beanstalk without
-                        using a virtual environment. However, I strongly advise against it. The last time that I tried
-                        to deploy a Flask app to Elastic Beanstalk <i>without</i> outside of the safety of a virtual
-                        environment, I encountered maddening errors about a Python
-                        <a href="https://pypi.org/project/six/">six</a> package that I didn't even know was a
-                        requirement for the awscli package that I was actually trying to install. For reference,
-                        <span data-toggle="modal" data-target="#SixError" style="color: #2F2C99;">
-                        this</span> was the actual command and error that I encountered.
-                    </p>
+                        <br>
+                        <!--Step 0-->
+                        <p>
+                            <h2>Step 0: Create a <a href="{{ url_for('key_terms_and_definitions') }}">virtual
+                            environment!</a></h2><br>Ok, to be fair, you can deploy a Flask application locally and to
+                            Elastic Beanstalk <i>without</i> using a virtual environment. However, I strongly advise
+                            against it. Every time I have tried to deploy a Flask app to Elastic Beanstalk outside
+                            of the safety of a virtual environment, I encountered at least one maddening error that ate
+                            up hours of valuable time, the most recent of which was
+                            <span data-toggle="modal" data-target="#SixError" style="color: #337ab7;">this</span> one;
+                            an error about about a Python <a href="https://pypi.org/project/six/">six</a> package that
+                            I didn't even know was a requirement for the awscli package that you need to install and
+                            use for the deployment (more about this later).
+                        </p>
 
-                    <!--Six error modal -->
-                    <div id="SixError" class="modal fade" role="dialog">
-                      <div class="modal-dialog modal-content">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Six error</h4>
-                          </div>
-                          <div class="modal-body">
-                    <pre><code><b>$ pip install awscli</b><br>
+                        <!--Six error modal -->
+                        <div id="SixError" class="modal fade" role="dialog">
+
+                          <div class="modal-dialog modal-content">
+
+                            <div class="modal-content">
+
+                              <div class="modal-header">
+
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                <h4 class="modal-title">Six error</h4>
+
+                              </div>
+
+                              <div class="modal-body">
+
+<pre><code><b>$ pip install awscli</b><br>
 Collecting awscli
   Using cached https://files.pythonhosted.org/packages/22/13/5c2df72102ab95f13a0b2ad470500327765e163d6867afd6421316fa6692/awscli-1.16.81-py2.py3-none-any.whl
 Collecting s3transfer<0.2.0,>=0.1.12 (from awscli)
@@ -116,275 +137,686 @@ matplotlib 1.3.1 requires tornado, which is not installed.
 Installing collected packages: six, python-dateutil, urllib3, botocore, s3transfer, pyasn1, rsa, colorama, PyYAML, awscli
 <b>Found existing installation: six 1.4.1
   Cannot uninstall 'six'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
-</b></code></pre>
+</b>
+</code></pre>
+
                           </div>
+
                         </div>
+
                       </div>
+
                     </div>
-                    <p>
-                        Believe me, you do <i>not</i> want to spend time debugging this. Just use a virtual environment
-                        so that you can avoid this and other issues that arise when attempting to go without one. If
-                        you already have pip <a href="https://pip.pypa.io/en/stable/installing/">installed</a>, you can
-                        install virtualenv by running <code>pip install virtualenv</code>. Once you install virtualenv,
-                        you have the ability to create virtual environment to run your Flask application in, but you
-                        still need to actually create and "activate" that virtual environment. To create a new virtual
-                        environment that you will run your Flask app in, run <code>virtualenv flask_app_env</code>.
-                        Then, to activate the new virtual environment, run <code>source flask_app_env/bin/activate</code>.
-                    </p>
-                    <p>
-                        Now you're ready to start building your Flask app, <i>within</i> your virtual environment of
-                        course.
-                    </p>
 
-                    <br>
-                    <!--Step 1-->
-                    <p>
-                        <h2>Step 1: Make a Flask app!</h2><br>If you're a true beginner, just getting a flask app up and
-                        running may be a feat in and of itself; much less deploying it to Elastic Beanstalk.
-                        Fortunately, there are lots of great tutorials like
-                        <a href="http://flask.pocoo.org/docs/1.0/tutorial/">this</a> one that will walk you through
-                        making your first Flask app, step by step. This blog is a Flask app, so if you don't want to go
-                        through the trouble of making your own Flask app right now, you can also just clone this one
-                        from GitHub by visiting <a href="https://github.com/alysedunn/personalsite2019">this</a> link.
-                        Since the focus of this post is on <i>deploying</i> Flask apps as opposed to creating them, I
-                        won't go into detail about creating the app. That said, in order to ensure a smooth deployment
-                        to Elastic Beanstalk, I strongly suggest that your Flask app's 'application' file (i.e. the file
-                        that contains your main Python code):
-                    </p>
-                    <ol>
-                        <li>
-                            Is named <code>application.py</code>
-                        </li>
-                        <li>
-                            Sets the value of <code>Flask(__name__)</code> equal to <code>application</code>.
-                        </li>
-                        <li>
-                            Sets the value of <code>"__name__"</code> to <code>"__main__"</code>.
-                        </li>
-                    </ol>
-                    <p>
-                        With all of the suggested updates for your application file above, your final application file
-                        will likely look like a simplified version of
-                        <a href="https://github.com/alysedunn/personalsite2019/blob/master/Main/application.py">this</a>.
-                        I strongly advise running your app locally before you go any further. To run your flask app
-                        locally, cd into your <code>main</code> directory, run the command <code>flask run</code>, and
-                        navigate to <code>http://127.0.0.1:5000</code> in your address bar. You should see your app in
-                        the browser at this point. If you don't, go back and review what you may have missed when
-                        creating your app. You definitely want to resolve any issues that you encounter locally before
-                        deploying to AWS, because if you don't, the debugging process will only get more difficult.
-                    </p>
+                        <p>
+                            Believe me, you do <i>not</i> want to spend time debugging this or similar errors that can
+                            easily be avoided by simply using a virtual environment. To spin up a virtual environment:
+                            <ol>
+                                <li>
+                                    Install <a href=""https://pypi.org/project/pip/>pip</a>, if you haven't already.
+                                    Pip is a package manager for Python that makes it quick and easy to install Python
+                                    packages. If you don't already have pip installed, and need help installing it, see
+                                    instructions <a href="https://pip.pypa.io/en/stable/installing/">here</a>.
+                                </li>
+                                <li>
+                                    Install <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, if you
+                                    haven't already. Virtualenv is a package that allows you to create virtual
+                                    environments. Once you have pip installed, you can insteall virtualenv by running
+                                    <code>$ pip install virtualenv</code>.
+                                </li>
+                                <li>
+                                    Now that you have virtualenv installed, you can create a new virtual environment by
+                                    running <code>$ virtualenv name_of_env</code>. Be sure to replace
+                                    <code>name_of_env</code> with whatever you actually want to call your virtual
+                                    environment. In this example, I call my virtual environment
+                                    <code>flask_app_env</code>.
+                                </li>
+                                <li>
+                                    Activate your virtual environment by running
+                                    <code>$ source flask_app_env/bin/activate</code>. Be sure to replace
+                                    <code>flask_app_env</code> with whatever you actually named your virtual
+                                    environment. You will know if you are in your virtual environment (as opposed to
+                                    just in a general space on your computer) when you see the name of the virtual
+                                    environment that you created in front of your cursor, as seen here:
+                                    <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#virtualenv" style="color: #337ab7;"></i>
 
-                    <br>
-                    <!--Step 2-->
-                    <p>
-                        <h2>Step 2: Make an AWS Account!</h2><br>To create an AWS account:
-                    </p>
-                    <ol>
-                        <li>
-                            Create an account
-                            <a href="https://portal.aws.amazon.com/billing/signup?type=enterprise#/start">here.</a>
-                        </li>
-                        <li>
-                            Once you've created and logged into your new AWS account, navigate to the search bar on the
-                            main landing page, type in "iam", and select the option presented in the dropdown.
+                                    <!--Virtualenv modal -->
+                                    <div id="virtualenv" class="modal fade" role="dialog">
 
-                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
-                               data-toggle="modal" data-target="#IAMSearch" style="color: #2F2C99;"></i>
+                                      <div class="modal-dialog modal-content">
 
-                            <!--User confirmation modal -->
-                            <div id="IAMSearch" class="modal fade" role="dialog">
-                              <div class="modal-dialog modal-content">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">User confirmation page</h4>
+                                        <div class="modal-content">
+
+                                          <div class="modal-header">
+
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                            <h4 class="modal-title">Virtual Environment Activation</h4>
+
+                                          </div>
+
+                                          <div class="modal-body">
+
+                                            <img class="img-responsive" src="static/img/virtualenv_screenshot.png"
+                                                 alt="Screenshot of virtualenv ">
+
+                                          </div>
+
+                                        </div>
+
+                                      </div>
+
+                                    </div>
+
+                                </li>
+                            </ol>
+                        </p>
+                        <p>
+                            Now you're ready to start building your Flask app! <i>Within</i> your virtual environment
+                            of course.
+                        </p>
+
+                        <br>
+                        <!--Step 1-->
+                        <p>
+                            <h2>Step 1: Make a Flask app!</h2><br>If you're a true beginner, just getting a Flask app
+                            up and running locally might be a project in and of itself, excluding the deployment to
+                            Elastic Beanstalk. Fortunately, there are lots of truly great tutorials like
+                            <a href="http://flask.pocoo.org/docs/1.0/tutorial/">this</a> one from the makers of Flask
+                            that will walk you through making your first app step by step.
+                        </p>
+                        <p>
+                            Since this blog is a Flask app too, if you don't want to go through the trouble of making
+                            an app from scratch right now, and you just want a simple Flask app in your hands right
+                            now that you can use for the deployment part of this tutorial, you can clone my repo and
+                            use my blog as 'your' app. To clone my repo with my blog, visit
+                            <a href="https://github.com/alysedunn/personalsite2019">this</a> link, and select the green
+                            "Clone or download" button. If this is your first time cloning a repo, and you need
+                            assistance, check out <a href="https://help.github.com/articles/cloning-a-repository/">this
+                            </a>reference guide on how to do this.
+                        </p>
+                        <p>
+                            Regardless of how you make/acquire your Flask application, ensure that the app has the
+                            following attributes to ensure a smooth deployment to Elastic Beanstalk:
+                        </p>
+                        <ol>
+                            <li>
+                                The app's application file is named <code>application.py</code>. This is the file that
+                                contains all of the routes for your app. The first line in this file is likely
+                                <code>from flask import Flask, render_template</code>
+                            </li>
+                            <li>
+                                Within the app's application file, the value of <code>Flask(__name__)</code> is equal
+                                to <code>application</code> (as opposed to, say, <code>app</code>).
+                            </li>
+                            <li>
+                                Within the app's application file, the value of <code>"__name__"</code> is equal to
+                                <code>"__main__"</code>, as seen
+                                <a href="https://github.com/alysedunn/personalsite2019/blob/master/Main/application.py#L29">
+                                here.</a>
+                            </li>
+                        </ol>
+                        <p>
+                            Once you have your application and it has all of the features detailed above, I strongly
+                            advise running your app locally before you go any further, to identify any issues that
+                            could be harder to debug further in the process. To run your flask app locally,
+                            <code>cd</code> into your applications' <code>Main</code> directory, and run the command
+                            <code>flask run</code>. Then, in your desired browser, navigate to
+                            <code>http://127.0.0.1:5000</code>. You should see your app in the browser at this point.
+                            If you don't, go back and review what you may have missed when creating or cloning the app.
+                        </p>
+
+                        <br>
+                        <!--Step 2-->
+                        <p>
+                            <h2>Step 2: Make an AWS Account and Create a New User!</h2><br>Steps to setting up an AWS
+                            account (if you don't already have one) are below. One note: If you're creating your first
+                            AWS account, and you're just deploying a simple Flask application (like the one you may
+                            have cloned from my GitHub repo), then AWS will only charge you $1.00 per month for the
+                            first year. Then, after that, AWS will charge you upwards of $20 per month depending on
+                            your usage. That is to say: don't let a small budget prevent you from jumping in and
+                            getting the ball rolling.
+                        </p>
+                        <ol>
+                            <li>
+                                Create an account
+                                <a href="https://portal.aws.amazon.com/billing/signup?type=enterprise#/start">here.</a>
+                            </li>
+                            <li>
+                                Once you've created and logged into your new account, navigate to the search bar on the
+                                main landing page, type in "iam", and select the option presented in the dropdown:
+
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#IAMSearch" style="color: #337ab7;"></i>
+
+                                <!--IAM search modal -->
+                                <div id="IAMSearch" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">AWS Main Landing Page: IAM Search</h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="static/img/aws_screenshot_2_search.png"
+                                             alt="AWS Main Landing Page search for IAM">
+                                      </div>
+
+                                    </div>
+
                                   </div>
-                                  <div class="modal-body">
-                                    <img class="img-responsive" src="static/img/aws_screenshot_2_search.png"
-                                         alt="AWS console homepage search bar IAM">
-                                  </div>
+
                                 </div>
+
+                            </li>
+                            <li>
+                                On the resulting page, select "Users" from the left hand panel, and click on the blue
+                                "Add User" button towards the top of the page:
+
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#IAMUsersMenu" style="color: #337ab7;"></i>
+
+                                <!--Add user modal -->
+                                <div id="IAMUsersMenu" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Add User</h4>
+
+                                      </div>
+
+                                      <div class="modal-body">
+
+                                        <img class="img-responsive" src="static/img/aws_screenshot_3_iam_users.png"
+                                             alt="AWS IAM Users menu">
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+
+                            </li>
+                            <li>
+                                Enter your desired username (in the screenshot, I use my name, "Alyse"), and be sure to
+                                select the "Programmatic Access" type from the two access type options. Once complete,
+                                select the blue "Next: Permissions" button in the lower right hand corner of the page:
+
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#CreateUser" style="color: #337ab7;"></i>
+
+                                <!--Add user access type modal -->
+                                <div id="CreateUser" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Assign Access Type to User</h4>
+
+                                      </div>
+
+                                      <div class="modal-body">
+
+                                        <img class="img-responsive" src="static/img/aws_screenshot_4_create_user.png"
+                                             alt="Add User Access Type for new AWS IAM user">
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+
+                            </li>
+                            <li>
+                                In the resulting modal, enter your desired group name. In the screenshot, I use the
+                                group name "Admins". Then, select the "Administrator Access" group from the list of
+                                available policies. Once done, select the blue "Create group" button in the lower right
+                                hand corner of the page:
+
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#CreateAdminsGroup" style="color: #337ab7;"></i>
+
+                                <!--Create Admins Group modal -->
+                                <div id="CreateAdminsGroup" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Assign Access Group to User</h4>
+
+                                      </div>
+
+                                      <div class="modal-body">
+
+                                        <img class="img-responsive" src="static/img/aws_screenshot_5_create_admin_group.png"
+                                             alt="Add User Access Group for new AWS IAM user">
+
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+
+                            </li>
+                            <li>
+                                The resulting screen will confirm that you are adding your newly created user to the
+                                "Admins" user group:
+
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#UserAccessConfirmation" style="color: #337ab7;"></i>
+
+                                <!--User group confirmation page modal -->
+                                <div id="UserAccessConfirmation" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Assign Access Policy to User</h4>
+
+                                      </div>
+
+                                      <div class="modal-body">
+
+                                        <img class="img-responsive" src="static/img/aws_screenshot_6_assign_user_to_group.png"
+                                             alt="Confirm User Access for new AWS IAM user ">
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+
+                            </li>
+                            <li>
+                                Continue clicking the blue "Next" buttons on the lower, right hand corner of each page
+                                until you get to the final confirmation page that the user has been successfully
+                                created with permissions:
+
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#UserFinalConfirmation" style="color: #337ab7;"></i>
+
+                                <!--User confirmation modal -->
+                                <div id="UserFinalConfirmation" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Assign Access Group to User</h4>
+
+                                      </div>
+
+                                      <div class="modal-body">
+
+                                        <img class="img-responsive" src="static/img/aws_screenshot_7_user_confirmation.png"
+                                             alt="AWS IAM Users create user final confirmation page">
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+
+                            </li>
+
+                        </ol>
+
+                        <br>
+                        <!--Step 3-->
+                        <p>
+                            <h2>Step 3: Deploy to AWS!</h2><br>Even though we created a user and permissions via the
+                            AWS UI, from here, will use the command line for the actual deployment. You'll want to do
+                            all of this from within your virtual environment. Again, you know if you  are in your
+                            virtual environment when you see the name of your virtual environment in front of your
+                            cursor, as seen here:
+                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                            data-toggle="modal" data-target="#virtualenv" style="color: #337ab7;"></i>
+
+                            <!--Virtualenv modal -->
+                            <div id="virtualenv" class="modal fade" role="dialog">
+
+                              <div class="modal-dialog modal-content">
+
+                                <div class="modal-content">
+
+                                  <div class="modal-header">
+
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                    <h4 class="modal-title">Virtual Environment Activation</h4>
+
+                                  </div>
+
+                                  <div class="modal-body">
+
+                                    <img class="img-responsive" src="static/img/virtualenv_screenshot.png"
+                                         alt="Screenshot of virtualenv ">
+
+                                  </div>
+
+                                </div>
+
                               </div>
+
                             </div>
 
-                        </li>
-                        <li>
-                            On the resulting page, select "Users" from the left hand panel, and click on the blue
-                            "Add User" button.
+                        </p>
+                        <p>To deploy your Flask app to Elastic Beanstalk:</p>
+                        <ol>
+                            <li>
+                                Install AWS command line tools if you haven't already. These can be installed by
+                                running <code>$ pip install awscli</code> via the command line.
+                            </li>
+                            <li>
+                                <code>cd</code> to into your application's <code>Main</code> directory. If you don't
+                                run everything from the <code>Main</code> directory, when you go to deploy, your
+                                application will throw errors not covered in this tutorial.
+                            </li>
+                            <li>
+                                In your application's <code>Main</code> directory, run <code>eb init</code>. This
+                                initializes Elastic Beanstalk. It will also create a git-ignored directory in your
+                                <code>Main</code> directory. Do not delete or move this directory. If you do, your
+                                deploy will fail.
+                            </li>
+                            <li>
+                                After you run <code>eb init</code>, you'll be prompted to enter your default region.
+                                This is effectively AWS asking you where you want your virtual servers to physically
+                                located in the world. If you hit enter, AWS will choose for you. Or, you can enter
+                                the number associated with your preferred region. If this is your first time doing
+                                this, I'd suggest just letting AWS decide this for you, but be sure to remember what
+                                the default is, so that you know where to look for your servers later. Since I live and
+                                work in New York City, I always enter a 1 here because these are the closest servers to
+                                me, and so that I don't create any variety in my deployment that could force me to look
+                                around in multiple different regions for my server:
 
-                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
-                               data-toggle="modal" data-target="#IAMUsersMenu" style="color: #2F2C99;"></i>
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#EbInitAndResults" style="color: #337ab7;"></i>
 
-                            <!--User confirmation modal -->
-                            <div id="IAMUsersMenu" class="modal fade" role="dialog">
-                              <div class="modal-dialog modal-content">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Add User</h4>
+                                <!--Eb init and results modal -->
+                                <div id="EbInitAndResults" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title"><code>eb init</code> and Region Selection</h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="static/img/eb_init_and_default_region.png"
+                                             alt="eb init and results on command line ">
+
+                                      </div>
+
+                                    </div>
+
                                   </div>
-                                  <div class="modal-body">
-                                    <img class="img-responsive" src="static/img/aws_screenshot_3_iam_users.png"
-                                         alt="AWS IAM Users menu">
-                                  </div>
+
                                 </div>
-                              </div>
-                            </div>
 
-                        </li>
-                        <li>
-                            Enter your desired username (in the screenshot, I use my name, "Alyse"), and be sure to
-                            select the "Programmatic Access" type from the two access type options. Once complete,
-                            select "Next: Permissions".
+                            </li>
+                            <li>
+                                Next, you'll be prompted to select an application that you want to use for this
+                                deployment. If this is your first time doing this, no options will be listed and you'll
+                                want to select the default of creating a new application. If you've done this before,
+                                you'll have the option of creating a new application, or selecting an application that
+                                you've made in the past. Regardless, for our purposes, enter whatever number is
+                                needed to create a new application:
 
-                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
-                               data-toggle="modal" data-target="#CreateUser" style="color: #2F2C99;"></i>
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#CreateNewApplication" style="color: #337ab7;"></i>
 
-                            <!--User confirmation modal -->
-                            <div id="CreateUser" class="modal fade" role="dialog">
-                              <div class="modal-dialog modal-content">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">User confirmation page</h4>
+                                <!--Create application modal -->
+                                <div id="CreateNewApplication" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title"><code>eb init</code> and Region Selection</h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="static/img/create_new_application.png"
+                                             alt="Create new Elastic Beanstalk Application via the command line">
+
+                                      </div>
+
+                                    </div>
+
                                   </div>
-                                  <div class="modal-body">
-                                    <img class="img-responsive" src="static/img/aws_screenshot_4_create_user.png"
-                                         alt="AWS IAM Users menu add username and access type">
-                                  </div>
+
                                 </div>
-                              </div>
-                            </div>
+                            </li>
+                            <li>
+                                Next, you'll be prompted to create a name for your appliation. I use the name
+                                'first_flask_app', but you can call it whatever you want:
 
-                        </li>
-                        <li>
-                            Enter your desired group name (in the screenshot, I use the name "Admins"), and select the
-                            "Administrator Access" group from the list of available policies.
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#NameApplication" style="color: #337ab7;"></i>
 
-                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
-                               data-toggle="modal" data-target="#CreateAdminGroup" style="color: #2F2C99;"></i>
+                                <!--Name application modal -->
+                                <div id="NameApplication" class="modal fade" role="dialog">
 
-                            <!--User confirmation modal -->
-                            <div id="CreateAdminGroup" class="modal fade" role="dialog">
-                              <div class="modal-dialog modal-content">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Assign Access Type to User</h4>
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title"><code>eb init</code> and Region Selection</h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="static/img/name_application.png"
+                                             alt="Name new Elastic Beanstalk Application via the command line">
+
+                                      </div>
+
+                                    </div>
+
                                   </div>
-                                  <div class="modal-body">
-                                    <img class="img-responsive" src="static/img/aws_screenshot_5_create_admin_group.png"
-                                         alt="AWS IAM Users menu create admin group">
-                                  </div>
+
                                 </div>
-                              </div>
-                            </div>
+                            </li>
+                            <li>
+                                Next, you'll be asked to confirm if you're using Python, and if so, which version.
+                                Enter the appropriate responses based on what you're using. You will also be asked if
+                                you want to set up SSH for your instances. I suggest entering 'Y' just because it'll
+                                give you more flexibility in the future as you interact with your instances, but
+                                there's also no harm in entering 'n' if you don't want to do this.
 
-                        </li>
-                        <li>
-                            The resulting screen will confirm that you are adding your newly created user to the
-                            "Admins" user group.
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#PythonVersionAndSSH" style="color: #337ab7;"></i>
 
-                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
-                               data-toggle="modal" data-target="#UserAccessConfirmation" style="color: #2F2C99;"></i>
+                                <!--Python version and SSH modal -->
+                                <div id="PythonVersionAndSSH" class="modal fade" role="dialog">
 
-                            <!--User confirmation modal -->
-                            <div id="UserAccessConfirmation" class="modal fade" role="dialog">
-                              <div class="modal-dialog modal-content">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Assign Access Policy to User</h4>
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Language, Version, and SSH preference</h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="static/img/python_and_ssh_confirmation.png"
+                                             alt="Enter language, language version, and SSH preferences via the
+                                             command line">
+
+                                      </div>
+
+                                    </div>
+
                                   </div>
-                                  <div class="modal-body">
-                                    <img class="img-responsive" src="static/img/aws_screenshot_6_assign_user_to_group.png"
-                                         alt="AWS IAM Users menu assign user to group">
-                                  </div>
+
                                 </div>
-                              </div>
-                            </div>
+                            </li>
+                            <li>
+                                Next, you'll be asked to confirm if you're using Python, and if so, which version.
+                                Enter the appropriate responses based on what you're using. You will also be asked if
+                                you want to set up SSH for your instances. I suggest entering 'Y' just because it'll
+                                give you more flexibility in the future as you interact with your instances, but
+                                there's also no harm in entering 'n' if you don't want to do this.
 
-                        </li>
-                        <li>
-                            Continue clicking the blue "Next" buttons on the lower, right hand corner of the page until
-                            you see the final confirmation page that the user has been successfully created and added
-                            to an access group:
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#PythonVersionAndSSH" style="color: #337ab7;"></i>
 
-                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
-                               data-toggle="modal" data-target="#UserFinalConfirmation" style="color: #2F2C99;"></i>
+                                <!--Python version and SSH modal -->
+                                <div id="PythonVersionAndSSH" class="modal fade" role="dialog">
 
-                            <!--User confirmation modal -->
-                            <div id="UserFinalConfirmation" class="modal fade" role="dialog">
-                              <div class="modal-dialog modal-content">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Assign Access Group to User</h4>
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Language, Version, and SSH preference</h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="static/img/python_and_ssh_confirmation.png"
+                                             alt="Enter language, language version, and SSH preferences via the
+                                             command line">
+
+                                      </div>
+
+                                    </div>
+
                                   </div>
-                                  <div class="modal-body">
-                                    <img class="img-responsive" src="static/img/aws_screenshot_7_user_confirmation.png"
-                                         alt="AWS IAM Users create user final confirmation page">
-                                  </div>
+
                                 </div>
-                              </div>
-                            </div>
+                            </li>
+                            <li>
+                                Next, you'll be asked to enter a keypair for your application. If this is your first
+                                time doing this, no options will be listed and you'll want to select the default of
+                                creating a new keypair. If you've done this before, you'll have the option of creating
+                                a new keypair, or selecting a keypair that you've made in the past. Regardless, for our
+                                purposes, enter whatever number is needed to create a new keypair. You'll also be
+                                prompted to enter a passphrase, which you can do, but I never bother with.
 
-                        </li>
-                    </ol>
-                    <p>
-                        Note that AWS doesn't charge new users to use basic tools like the ones we'll be using for the
-                        first year. However, they <i>will</i> start charging you after that first year.
-                    </p>
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#Keypair" style="color: #337ab7;"></i>
 
-                    <br>
-                    <!--Step 3-->
-                    <p>
-                        <h2>Step 3: Deploy to AWS!</h2><br>Even though we created a user and permissions via the UI, we
-                        will use the command line to proceed with the actual deployment. For the deployment, run the
-                        commands below, in order:
-                    </p>
-                    <ol>
-                        <li>
-                            <code>cd</code> to into your application's <code>Main</code> directory. If you don't run
-                            everything from the <code>Main</code> directory, when you go to deploy, your application
-                            will throw errors not covered in this tutorial.
-                        </li>
-                        <li>
-                            In your application's <code>Main</code> directory, run <code>eb init</code>. This
-                            initializes Elastic Beanstalk. It will also create a git-ignored directory in your
-                            <code>Main</code> directory. Do not delete or move this directory. If you do, your deploy
-                            will not be successful.
-                        </li>
-                        <li>
-                            After you run <code>eb init</code>, you'll be prompted to enter your default region. You
-                            can either hit enter to have Elastic Beanstalk select for you, or you can enter a number
-                            for your preferred region. I always manually enter a number of the region that's closest to
-                            where I'm physically located. I live and work in New York City, so I enter a 1 for the
-                            <code>us-east-1</code> region.
+                                <!--Keypair modal -->
+                                <div id="Keypair" class="modal fade" role="dialog">
 
-                            <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
-                               data-toggle="modal" data-target="#EbInitAndResults" style="color: #2F2C99;"></i>
+                                  <div class="modal-dialog modal-content">
 
-                            <!--Eb init and results modal -->
-                            <div id="EbInitAndResults" class="modal fade" role="dialog">
-                              <div class="modal-dialog modal-content">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">eb init and results</h4>
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Language, Version, and SSH preference</h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="static/img/keypair.png"
+                                             alt="Enter keypair via the command line">
+
+                                      </div>
+
+                                    </div>
+
                                   </div>
-                                  <div class="modal-body">
-                                    <img class="img-responsive" src="static/img/eb_init_and_default_region.png"
-                                         alt="AWS console homepage search bar IAM">
-                                  </div>
+
                                 </div>
-                              </div>
-                            </div>
+                            </li>
+                            <li>
+                                That's it for the setup; time to deploy! To deploy to Elastic Beanstalk, simply run the
+                                command <code>eb deploy</code>. You'll see some output in your terminal as the deploy
+                                is happening, and a confirmation message once complete. Once complete, log back into
+                                the AWS UI, and 
 
-                        </li>
-                    </ol>
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#Keypair" style="color: #337ab7;"></i>
 
-                    <br>
+                                <!--Keypair modal -->
+                                <div id="Keypair" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Language, Version, and SSH preference</h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="static/img/keypair.png"
+                                             alt="Enter keypair via the command line">
+
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+                            </li>
+                        </ol>
+                        </div>
+
+                        <br>
             </div>
 
         </div>
