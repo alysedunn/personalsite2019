@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="618d6dbd-d2c6-4f82-94f1-5e501bed0bcf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/static/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Main/static/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/templates/bloglayout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/bloglayout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/templates/flask_aws.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/flask_aws.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/templates/flask_aws.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="786" column="52" lean-forward="true" selection-start-line="786" selection-start-column="52" selection-end-line="786" selection-end-column="52" />
+            <state relative-caret-position="490">
+              <caret line="847" column="28" selection-start-line="847" selection-start-column="28" selection-end-line="847" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -51,12 +47,14 @@
                 <element signature="e#37601#37608#1" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#li#6;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="e#38757#38764#1" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#li#7;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="e#41168#41175#1" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#li#8;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="e#43203#43210#1" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#li#9;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="e#45317#45324#1" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#li#10;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="e#46769#46776#1" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#li#10;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="e#46563#46570#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -278,12 +276,12 @@
       <workItem from="1545618094939" duration="12034000" />
       <workItem from="1548039994989" duration="4933000" />
       <workItem from="1548079934528" duration="12118000" />
-      <workItem from="1549059186166" duration="33640000" />
+      <workItem from="1549059186166" duration="34805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62725000" />
+    <option name="totallyTimeSpent" value="63890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1424" height="867" extended-state="0" />
@@ -427,8 +425,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/templates/flask_aws.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="786" column="52" lean-forward="true" selection-start-line="786" selection-start-column="52" selection-end-line="786" selection-end-column="52" />
+        <state relative-caret-position="490">
+          <caret line="847" column="28" selection-start-line="847" selection-start-column="28" selection-end-line="847" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -459,12 +457,14 @@
             <element signature="e#37601#37608#1" expanded="true" />
             <element signature="n#style#0;n#i#0;n#li#6;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="e#38757#38764#1" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#li#7;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="e#41168#41175#1" expanded="true" />
             <element signature="n#style#0;n#i#0;n#li#8;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="e#43203#43210#1" expanded="true" />
             <element signature="n#style#0;n#i#0;n#li#9;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="e#45317#45324#1" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#li#10;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="e#46769#46776#1" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#li#10;n#ol#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="e#46563#46570#1" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -705,43 +705,6 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                 </div>
                             </li>
                             <li>
-                                Next, you'll be asked to confirm if you're using Python, and if so, which version.
-                                Enter the appropriate responses based on what you're using. You will also be asked if
-                                you want to set up SSH for your instances. I suggest entering 'Y' just because it'll
-                                give you more flexibility in the future as you interact with your instances, but
-                                there's also no harm in entering 'n' if you don't want to do this.
-
-                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
-                                   data-toggle="modal" data-target="#PythonVersionAndSSH" style="color: #337ab7;"></i>
-
-                                <!--Python version and SSH modal -->
-                                <div id="PythonVersionAndSSH" class="modal fade" role="dialog">
-
-                                  <div class="modal-dialog modal-content">
-
-                                    <div class="modal-content">
-
-                                      <div class="modal-header">
-
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                        <h4 class="modal-title">Language, Version, and SSH preference</h4>
-
-                                      </div>
-                                      <div class="modal-body">
-                                        <img class="img-responsive" src="static/img/python_and_ssh_confirmation.png"
-                                             alt="Enter language, language version, and SSH preferences via the
-                                             command line">
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-
-                                </div>
-                            </li>
-                            <li>
                                 Next, you'll be asked to enter a keypair for your application. If this is your first
                                 time doing this, no options will be listed and you'll want to select the default of
                                 creating a new keypair. If you've done this before, you'll have the option of creating
@@ -779,16 +742,17 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                 </div>
                             </li>
                             <li>
-                                That's it for the setup; time to deploy! To deploy to Elastic Beanstalk, simply run the
-                                command <code>eb deploy</code>. You'll see some output in your terminal as the deploy
-                                is happening, and a confirmation message once complete. Once complete, log back into
-                                the AWS UI, and 
-
+                                Next, we have to set up the environment name and DNS for our app by running
+                                <code>eb create</code>. You'll be prompted to enter an environment name, DNS name, and
+                                load balancer type. It's fine to use defaults for all of this, just be sure to remember
+                                what those defaults are. Once you finish stepping through the prompts, you'll see some
+                                output in the terminal while Elastic Beanstalk deploys the application. It generally
+                                takes 10-20 minutes to deploy, and the console output stops when complete.
                                 <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
-                                   data-toggle="modal" data-target="#Keypair" style="color: #337ab7;"></i>
+                                   data-toggle="modal" data-target="#EbCreate" style="color: #337ab7;"></i>
 
-                                <!--Keypair modal -->
-                                <div id="Keypair" class="modal fade" role="dialog">
+                                <!--Eb Create modal -->
+                                <div id="EbCreate" class="modal fade" role="dialog">
 
                                   <div class="modal-dialog modal-content">
 
@@ -802,7 +766,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                       </div>
                                       <div class="modal-body">
-                                        <img class="img-responsive" src="static/img/keypair.png"
+                                        <img class="img-responsive" src="static/img/eb_create.png"
                                              alt="Enter keypair via the command line">
 
                                       </div>
@@ -813,7 +777,79 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                 </div>
                             </li>
+                            <li>
+                                Once complete, sign back into the AWS UI, and navigate to the search bar on the main
+                                landing page, type in "elastic beanstalk", and select the option presented in the
+                                dropdown:
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#ElasticBeanstalkSearch" style="color: #337ab7;"></i>
+
+                                <!--Elastic Beanstalk search modal -->
+                                <div id="ElasticBeanstalkSearch" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Elastic Beanstalk Search</h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="static/img/elastic_beanstalk_search.png"
+                                             alt="Search for Elastic Beanstalk">
+
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+                            </li>
+                            <li>
+                                In the Elastic Beanstalk dashboard, towards the top of the page, you'll see a 'URL'.
+                                If everything has completed successfully, click on this URL to be directed to your
+                                site:
+                                <i class="fa fa-picture-o" aria-hidden="true" type="button" class="btn btn-info btn-lg"
+                                   data-toggle="modal" data-target="#ElasticBeanstalkURL" style="color: #337ab7;"></i>
+
+                                <!--Final flask app modal -->
+                                <div id="ElasticBeanstalkURL" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Elastic Beanstalk Landing Page with app URL </h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="static/img/final_flask_app.png"
+                                             alt="Search for Elastic Beanstalk">
+
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+                            </li>
                         </ol>
+
+                        <br>
+
+                        <p>
+                            That's it! You've just successfully deployed your Flask application to Elastic Beanstalk!
+                        </p>
                         </div>
 
                         <br>
