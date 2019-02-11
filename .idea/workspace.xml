@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="618d6dbd-d2c6-4f82-94f1-5e501bed0bcf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/templates/bloglayout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/bloglayout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/templates/flask_aws.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/flask_aws.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/templates/flask_aws.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="912" column="106" selection-start-line="912" selection-start-column="106" selection-end-line="912" selection-end-column="106" />
+            <state relative-caret-position="319">
+              <caret line="692" column="80" selection-start-line="692" selection-start-column="80" selection-end-line="692" selection-end-column="80" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -146,7 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>close</find>
       <find>style</find>
       <find>list of available policies</find>
       <find>color</find>
@@ -176,6 +170,7 @@
       <find>as seen gere</find>
       <find>Next</find>
       <find>when complete</find>
+      <find>region selection</find>
     </findStrings>
     <replaceStrings>
       <replace>static</replace>
@@ -206,7 +201,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="1733" />
+    <option name="y" value="25" />
     <option name="width" value="1424" />
     <option name="height" value="867" />
   </component>
@@ -280,15 +276,15 @@
       <workItem from="1545618094939" duration="12034000" />
       <workItem from="1548039994989" duration="4933000" />
       <workItem from="1548079934528" duration="12118000" />
-      <workItem from="1549059186166" duration="43158000" />
+      <workItem from="1549059186166" duration="43789000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72243000" />
+    <option name="totallyTimeSpent" value="72874000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1424" height="867" extended-state="0" />
+    <frame x="1733" y="25" width="1424" height="867" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16642547" />
@@ -435,8 +431,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/templates/flask_aws.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="912" column="106" selection-start-line="912" selection-start-column="106" selection-end-line="912" selection-end-column="106" />
+        <state relative-caret-position="319">
+          <caret line="692" column="80" selection-start-line="692" selection-start-column="80" selection-end-line="692" selection-end-column="80" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
