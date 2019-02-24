@@ -57,11 +57,11 @@
                         </p>
                         <p>
                             These days when I deploy my Flask apps to Elastic Beanstalk, I still run into some of the
-                            same hurdles that I encountered when I first started doing this three years ago.
-                            Fortunately, experience has helped me to power through each error more easily. In an effort
-                            to continue making this process easier each time, and to assist others who may still be
-                            struggling, I've created the following step-by-step guide to deploying Flask apps to AWS
-                            Elastic Beanstalk. A few notes about this guide:
+                            same hurdles that I encountered back then. Fortunately, experience has helped me to power
+                            through each error more easily. In an effort to continue making this process easier for
+                            myself, and to assist others who may still be struggling, I've created the following
+                            step-by-step guide to deploying Flask apps to AWS Elastic Beanstalk. A few notes about this
+                            guide:
                             <ol>
                                 <li>
                                     I use Python 2.7 throughout this tutorial. If you are using a different version of
@@ -69,8 +69,8 @@
                                 </li>
                                 <li>
                                     Depending on your comfort level with the language and tools presented here, it will
-                                    take you at least an hour to complete this tutorial from start to finish, so you
-                                    may want to plan accordingly.
+                                    take you at least an hour to complete this tutorial from start to finish, so you'll
+                                    want to plan accordingly.
                                 </li>
                                 <li>
                                     Be sure to check out the <i class="fa fa-picture-o"></i> icons throughout this post
@@ -91,13 +91,13 @@
                             using a virtual environment. However, I feel so strongly that you <i>should</i> run your
                             app in a virtual environment that I'm including it as a step in this tutorial. Every time
                             I've tried to deploy a Flask app to Elastic Beanstalk outside of the safety of a virtual
-                            environment, I encountered at least one maddening error that ate up hours of valuable time,
-                            the most recent of which was
+                            environment, I've encountered at least one maddening error that ate up hours of valuable
+                            time, the most recent of which was
                             <span data-toggle="modal" data-target="#SixError" style="color: #337ab7;">
                                 <a href="#" onclick="return false;">this</a>
                             </span> one &mdash;an error about about a Python
                             <a href="https://pypi.org/project/six/">six</a> package that I didn't even know was
-                            involved in this larger process of deploying a Flask app to Elastic Beanstalk. Believe me,
+                            needed in this larger process of deploying a Flask app to Elastic Beanstalk. Believe me,
                             you do <i>not</i> want to spend time debugging this or similar errors that can easily be
                             avoided by using a virtual environment. To spin up a virtual environment:
                         </p>
@@ -163,8 +163,13 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                 <li>
                                     Install <a href="https://pypi.org/project/pip/">pip</a>, if you haven't already.
                                     Pip is a package manager for Python that makes it quick and easy to install Python
-                                    packages. If you need help installing pip, see instructions
-                                    <a href="https://pip.pypa.io/en/stable/installing/">here</a>.
+                                    packages. There are a few different ways to install pip, as documented
+                                    <a href="https://pip.pypa.io/en/stable/installing/">here</a>, but the easiest way
+                                    is, arguably, to just run
+                                    <code>$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py</code>
+                                    Note that you run the above command and get an error about how you need to run it
+                                    with sudo, just change the command to
+                                    <code>$ sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py</code>.
                                 </li>
                                 <li>
                                     Install <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, if you
@@ -241,10 +246,20 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                             <a href="https://github.com/alysedunn/personalsite2019">this</a> link, and select the green
                             "Clone or download" button. If this is your first time cloning a repo, and you need
                             assistance, check out <a href="https://help.github.com/articles/cloning-a-repository/">this
-                            </a>reference on how to do this.
+                            </a>reference on how to do this. If you do choose to clone my repo, be sure to install all
+                            of the requirements in the requirements file in the repo. If you don't, the app won't run.
+                            To install all of the requirements in my project's requirements file, within the highest
+                            level directory of the project, run <br> <code>$ pip install -r requirements.txt</code>
+                        </p>
+                        <p>
                             Regardless of how you make/acquire your Flask application, ensure the following to ensure
                             a smooth deployment to Elastic Beanstalk:
                         <ol>
+                             <li>
+                                That Flask is installed inside of your virtual environment. To install Flask inside of
+                                your virtual environment, run  <code>$ pip install Flask</code> on the command line. If
+                                Flask is already installed, you'll see a message confirming that it's already installed.
+                             </li>
                             <li>
                                 The app's application file must be named <code>application.py</code> (as opposed to,
                                 say, <code>app.py</code>). This is the file that contains all of the routes for your
@@ -252,24 +267,26 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                 <code>from flask import Flask, render_template</code>
                             </li>
                             <li>
-                                Within the app's application file, the value of <code>Flask(__name__)</code> must be
-                                equal to <code>application</code> (as opposed to, say, <code>app</code>).
+                                Within <code>application.py</code>, &nbsp;<code>Flask(__name__)</code> must be assigned
+                                to <code>application</code> (as opposed to, say, <code>app</code>).
                             </li>
                             <li>
-                                Within the app's application file, the value of <code>"__name__"</code> must be equal
-                                to <code>"__main__"</code>, as seen
-                                <a href="https://github.com/alysedunn/personalsite2019/blob/master/Main/application.py#L29">
-                                here.</a>
+                                Within <code>application.py</code>, &nbsp;<code>"__name__"</code> must be assigned
+                                to <code>"__main__"</code>, as seen at the bottom of
+                                <a href="https://github.com/alysedunn/personalsite2019/blob/master/Main/application.py">
+                                this </a>file.
                             </li>
                         </ol>
                         <p>
                             Once you have your application and it has all of the attributes detailed above, I strongly
                             advise running your app locally before you go any further, to identify any issues that
                             could be harder to debug further in the process. To run your Flask app locally,
-                            <code>cd</code> into your application's <code>Main</code> directory, and run the command
-                            <code>flask run</code>. Then, in your desired browser, navigate to
-                            <code>http://127.0.0.1:5000</code>. You should see your app in the browser. If you don't,
-                            go back and review what you may have missed when creating or cloning the app.
+                            <code>cd</code> into your application's <code>Main</code> directory. Then, on the command
+                            line, run <code>$ export FLASK_APP=application.py</code>, followed by
+                            <code>$ flask run</code> (also on the command line). Then, in your desired browser,
+                            navigate to <code>http://127.0.0.1:5000</code>. At this point, you should see your app in
+                            the browser. If you don't, go back and review what you may have missed when creating or
+                            cloning the app.
                         </p>
 
                         <br>
@@ -287,6 +304,12 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                             <li>
                                 Create an account
                                 <a href="https://portal.aws.amazon.com/billing/signup?type=enterprise#/start">here.</a>
+                                Note that you may be asked to enter a credit card to create a new account. If you are
+                                not asked for a credit card, then I strongly suggest proactively adding one to your
+                                newly created account, as the deployment will just fail if you don't have a credit card
+                                linked to your account. Instructions on adding a credit card to your AWS account can be
+                                found
+                                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cc.html">here</a>.
                             </li>
                             <li>
                                 Once you've created and logged into your new account, navigate to the search bar on the
@@ -392,7 +415,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                       <div class="modal-body">
 
                                         <img class="img-responsive" src="static/img/aws_screenshot_4_create_user.png"
-                                             alt="Add User Access Type for new AWS IAM user">
+                                             alt="Assign access type to IAM user in the AWS Admin portal">
                                       </div>
 
                                     </div>
@@ -432,7 +455,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                       <div class="modal-body">
 
                                         <img class="img-responsive" src="static/img/aws_screenshot_5_create_admin_group.png"
-                                             alt="Add User Access Group for new AWS IAM user">
+                                             alt="Assign group to IAM user in the AWS Admin portal">
 
                                       </div>
 
@@ -465,14 +488,14 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                        <h4 class="modal-title">Assign Access Policy to User</h4>
+                                        <h4 class="modal-title">Add Newly Created User to Group</h4>
 
                                       </div>
 
                                       <div class="modal-body">
 
                                         <img class="img-responsive" src="static/img/aws_screenshot_6_assign_user_to_group.png"
-                                             alt="Confirm User Access for new AWS IAM user ">
+                                             alt="Add IAM user to Admins Group">
                                       </div>
 
                                     </div>
@@ -505,7 +528,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                        <h4 class="modal-title">Assign Access Group to User</h4>
+                                        <h4 class="modal-title">Confirmation Page</h4>
 
                                       </div>
 
@@ -573,12 +596,12 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                         <ol>
                             <li>
                                 Install AWS command line tools if you haven't already. These can be installed by
-                                running &nbsp;<code>$ pip install awscli</code> via the command line.
+                                running &nbsp;<code>$ pip install awsebcli --upgrade</code> via the command line.
                             </li>
                             <li>
                                 <code>cd</code> to into your application's <code>Main</code> directory. This is
                                 important. If you don't run everything from the <code>Main</code> directory, when you
-                                go to deploy, your application, it will throw errors not covered in this tutorial.
+                                go to deploy your application, it will throw errors not covered in this tutorial.
                             </li>
                             <li>
                                 In your application's <code>Main</code> directory, run <code>eb init</code>. This
@@ -629,47 +652,6 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                             </li>
                             <li>
-                                You'll be prompted to select an application that you want to use for this
-                                deployment. If this is your first time doing this, no options will be listed and you'll
-                                want to select the default of creating a new application. If you've done this before,
-                                you'll have the option of creating a new application, or selecting an application that
-                                you've made in the past. Regardless, for our purposes, enter whatever number is
-                                needed to create a new application:&nbsp;
-
-                                 <a href="#" onclick="return false;">
-                                     <i class="fa fa-picture-o" aria-hidden="true" type="button"
-                                        class="btn btn-info btn-lg" data-toggle="modal"
-                                        data-target="#CreateNewApplication">
-                                     </i>
-                                 </a>
-
-                                <!--Create application modal -->
-                                <div id="CreateNewApplication" class="modal fade" role="dialog">
-
-                                  <div class="modal-dialog modal-content">
-
-                                    <div class="modal-content">
-
-                                      <div class="modal-header">
-
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                        <h4 class="modal-title">Application Selection</h4>
-
-                                      </div>
-                                      <div class="modal-body">
-                                        <img class="img-responsive" src="static/img/create_new_application.png"
-                                             alt="Create new Elastic Beanstalk Application via the command line">
-
-                                      </div>
-
-                                    </div>
-
-                                  </div>
-
-                                </div>
-                            </li>
-                            <li>
                                 You'll be prompted to create a name for your application. I use the name
                                 'first_flask_app', but you can call it whatever you want:&nbsp;
 
@@ -690,7 +672,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                        <h4 class="modal-title">Name Application</h4>
+                                        <h4 class="modal-title">Name the Application</h4>
 
                                       </div>
                                       <div class="modal-body">
@@ -708,7 +690,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                             <li>
                                 Next, you'll be asked to confirm if you're using Python, and if so, which version.
                                 Enter the appropriate responses based on what you're using. You will also be asked if
-                                you want to set up SSH for your instances. I suggest entering 'Y' just because it'll
+                                you want to set up SSH for your instances. I suggest entering 'y' just because it'll
                                 give you more flexibility in the future as you interact with your instances, but
                                 there's also no harm in entering 'n' right not if you want to keep it simple.&nbsp;
 
@@ -747,7 +729,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                 </div>
                             </li>
                             <li>
-                                You'll be asked to enter a keypair for your application. If this is your first
+                                Next, you'll be asked to enter a keypair for your application. If this is your first
                                 time doing this, no options will be listed and you'll want to select the default of
                                 creating a new keypair. If you've done this before, you'll have the option of creating
                                 a new keypair, or selecting a keypair that you've made in the past. Regardless, for our

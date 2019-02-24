@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="618d6dbd-d2c6-4f82-94f1-5e501bed0bcf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/templates/flask_aws.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/flask_aws.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,6 +15,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Main/templates/flask_aws.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="311" column="127" lean-forward="true" selection-start-line="311" selection-start-column="127" selection-end-line="311" selection-end-column="127" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="e#11252#11258#0" expanded="true" />
+                <element signature="e#11258#11264#0" expanded="true" />
+                <element signature="e#11803#11809#0" expanded="true" />
+                <element signature="e#11809#11815#0" expanded="true" />
+                <element signature="e#12035#12041#0" expanded="true" />
+                <element signature="e#12041#12047#0" expanded="true" />
+                <element signature="e#12588#12594#0" expanded="true" />
+                <element signature="e#17868#17874#0" expanded="true" />
+                <element signature="e#18155#18161#0" expanded="true" />
+                <element signature="e#21021#21027#0" expanded="true" />
+                <element signature="e#24746#24752#0" expanded="true" />
+                <element signature="e#26439#26445#0" expanded="true" />
+                <element signature="e#28311#28317#0" expanded="true" />
+                <element signature="e#30492#30498#0" expanded="true" />
+                <element signature="e#32140#32146#0" expanded="true" />
+                <element signature="e#33913#33919#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="240">
+                <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="e#1224#1231#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -21,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="203" column="24" selection-start-line="203" selection-start-column="24" selection-end-line="203" selection-end-column="24" />
+            <state relative-caret-position="229">
+              <caret line="195" column="28" lean-forward="true" selection-start-line="195" selection-start-column="28" selection-end-line="195" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -69,21 +137,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>as seen ehre</find>
-      <find>seen here</find>
-      <find>If you're</find>
-      <find>cursor, as seen here</find>
-      <find>With all of the suggested updates</find>
-      <find>continue</find>
-      <find>pip install</find>
-      <find>listed and you'll</find>
-      <find>novice newcomer</find>
-      <find>How to Deploy your Flask app to AWS Elastic Beanstalk</find>
-      <find>flask</find>
-      <find>documentation</find>
-      <find>as seen here</find>
-      <find>if youre</find>
-      <find>style=&quot;color: #337ab7;</find>
       <find>the page:</find>
       <find>the actual</find>
       <find>as seen gere</find>
@@ -99,6 +152,21 @@
       <find>%</find>
       <find>aug</find>
       <find>colleagues</find>
+      <find>encountered</find>
+      <find>if you haven't already</find>
+      <find>clone</find>
+      <find>application file</find>
+      <find>The app's application file</find>
+      <find>Flask(__name__)</find>
+      <find>Assign Access Policy to User</find>
+      <find>Assign Access Group to User</find>
+      <find>deploy, your</find>
+      <find>application to use</find>
+      <find>You'll be prompted to select an application</find>
+      <find>name application</find>
+      <find>You'll be asked</find>
+      <find>premiumsupport</find>
+      <find>credit</find>
     </findStrings>
     <replaceStrings>
       <replace>static</replace>
@@ -119,12 +187,13 @@
         <option value="$PROJECT_DIR$/Main/static/css/mobile-menu.css" />
         <option value="$PROJECT_DIR$/Main/application.py" />
         <option value="$PROJECT_DIR$/Main/templates/bloglayout.html" />
-        <option value="$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html" />
-        <option value="$PROJECT_DIR$/Main/templates/flask_aws.html" />
         <option value="$PROJECT_DIR$/Main/templates/blog.html" />
         <option value="$PROJECT_DIR$/Main/static/css/style.css" />
         <option value="$PROJECT_DIR$/Main/static/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html" />
+        <option value="$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Main/templates/flask_aws.html" />
       </list>
     </option>
   </component>
@@ -204,12 +273,12 @@
       <workItem from="1545618094939" duration="12034000" />
       <workItem from="1548039994989" duration="4933000" />
       <workItem from="1548079934528" duration="12118000" />
-      <workItem from="1549059186166" duration="53183000" />
+      <workItem from="1549059186166" duration="56790000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82268000" />
+    <option name="totallyTimeSpent" value="85875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1441" y="23" width="1919" height="1057" extended-state="6" />
@@ -251,13 +320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/blog.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -269,16 +331,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="210">
-            <caret line="14" selection-start-line="14" selection-end-line="14" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -310,74 +362,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="70" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="76" selection-start-line="12" selection-start-column="76" selection-end-line="12" selection-end-column="76" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/templates/flask_aws.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="698" lean-forward="true" selection-start-line="698" selection-end-line="698" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="e#5956#5963#0" expanded="true" />
-            <element signature="e#5416#5423#1" expanded="true" />
-            <element signature="e#11166#11172#0" expanded="true" />
-            <element signature="e#11172#11178#0" expanded="true" />
-            <element signature="e#11252#11258#0" expanded="true" />
-            <element signature="e#11258#11264#0" expanded="true" />
-            <element signature="e#11492#11498#0" expanded="true" />
-            <element signature="e#11498#11504#0" expanded="true" />
-            <element signature="e#11803#11809#0" expanded="true" />
-            <element signature="e#11809#11815#0" expanded="true" />
-            <element signature="e#12035#12041#0" expanded="true" />
-            <element signature="e#12041#12047#0" expanded="true" />
-            <element signature="e#12588#12594#0" expanded="true" />
-            <element signature="e#11928#11935#1" expanded="true" />
-            <element signature="e#19360#19366#0" expanded="true" />
-            <element signature="e#13399#13406#1" expanded="true" />
-            <element signature="e#21021#21027#0" expanded="true" />
-            <element signature="e#13969#13976#1" expanded="true" />
-            <element signature="e#22828#22834#0" expanded="true" />
-            <element signature="e#14619#14626#1" expanded="true" />
-            <element signature="e#24746#24752#0" expanded="true" />
-            <element signature="e#15249#15256#1" expanded="true" />
-            <element signature="e#26439#26445#0" expanded="true" />
-            <element signature="e#15821#15828#1" expanded="true" />
-            <element signature="e#28311#28317#0" expanded="true" />
-            <element signature="e#16513#16520#1" expanded="true" />
-            <element signature="e#30492#30498#0" expanded="true" />
-            <element signature="e#30130#30137#1" expanded="true" />
-            <element signature="e#32140#32146#0" expanded="true" />
-            <element signature="e#33913#33919#0" expanded="true" />
-            <element signature="e#18683#18690#1" expanded="true" />
-            <element signature="e#36082#36088#0" expanded="true" />
-            <element signature="e#35565#35572#1" expanded="true" />
-            <element signature="e#37861#37867#0" expanded="true" />
-            <element signature="e#37601#37608#1" expanded="true" />
-            <element signature="e#39964#39970#0" expanded="true" />
-            <element signature="e#38757#38764#1" expanded="true" />
-            <element signature="e#42302#42308#0" expanded="true" />
-            <element signature="e#43203#43210#1" expanded="true" />
-            <element signature="e#44378#44384#0" expanded="true" />
-            <element signature="e#45317#45324#1" expanded="true" />
-            <element signature="e#46105#46111#0" expanded="true" />
-            <element signature="e#46769#46776#1" expanded="true" />
-            <element signature="e#47927#47933#0" expanded="true" />
-            <element signature="e#46563#46570#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -414,8 +398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="203" column="24" selection-start-line="203" selection-start-column="24" selection-end-line="203" selection-end-column="24" />
+        <state relative-caret-position="229">
+          <caret line="195" column="28" lean-forward="true" selection-start-line="195" selection-start-column="28" selection-end-line="195" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -429,6 +413,63 @@
             <element signature="e#8071#8078#0" expanded="true" />
             <element signature="e#13270#13277#0" expanded="true" />
             <element signature="e#13283#13290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="e#1224#1231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="240">
+            <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/templates/flask_aws.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="311" column="127" lean-forward="true" selection-start-line="311" selection-start-column="127" selection-end-line="311" selection-end-column="127" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="e#11252#11258#0" expanded="true" />
+            <element signature="e#11258#11264#0" expanded="true" />
+            <element signature="e#11803#11809#0" expanded="true" />
+            <element signature="e#11809#11815#0" expanded="true" />
+            <element signature="e#12035#12041#0" expanded="true" />
+            <element signature="e#12041#12047#0" expanded="true" />
+            <element signature="e#12588#12594#0" expanded="true" />
+            <element signature="e#17868#17874#0" expanded="true" />
+            <element signature="e#18155#18161#0" expanded="true" />
+            <element signature="e#21021#21027#0" expanded="true" />
+            <element signature="e#24746#24752#0" expanded="true" />
+            <element signature="e#26439#26445#0" expanded="true" />
+            <element signature="e#28311#28317#0" expanded="true" />
+            <element signature="e#30492#30498#0" expanded="true" />
+            <element signature="e#32140#32146#0" expanded="true" />
+            <element signature="e#33913#33919#0" expanded="true" />
           </folding>
         </state>
       </provider>
