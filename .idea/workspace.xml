@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="618d6dbd-d2c6-4f82-94f1-5e501bed0bcf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/blog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+            <state relative-caret-position="435">
+              <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -76,15 +75,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="377" column="28" selection-start-line="377" selection-start-column="28" selection-end-line="377" selection-end-column="28" />
+            <state relative-caret-position="586">
+              <caret line="400" column="100" lean-forward="true" selection-start-line="400" selection-start-column="100" selection-end-line="400" selection-end-column="100" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="e#4471#4499#0" expanded="true" />
               </folding>
             </state>
@@ -125,7 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>encountered</find>
       <find>if you haven't already</find>
       <find>clone</find>
       <find>application file</find>
@@ -155,6 +153,7 @@
       <find>increasingly</find>
       <find>newcommer</find>
       <find>newcomer</find>
+      <find>kavan</find>
     </findStrings>
     <replaceStrings>
       <replace>static</replace>
@@ -169,7 +168,6 @@
         <option value="$PROJECT_DIR$/html/__init__.py" />
         <option value="$PROJECT_DIR$/html/templates/index.html" />
         <option value="$PROJECT_DIR$/html/blog.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/.elasticbeanstalk/config.yml" />
         <option value="$PROJECT_DIR$/Main/templates/modals.html" />
         <option value="$PROJECT_DIR$/Main/static/css/mobile-menu.css" />
@@ -181,6 +179,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Main/templates/flask_aws.html" />
         <option value="$PROJECT_DIR$/Main/templates/blog.html" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html" />
       </list>
     </option>
@@ -263,12 +262,12 @@
       <workItem from="1548079934528" duration="12118000" />
       <workItem from="1549059186166" duration="63287000" />
       <workItem from="1552353564019" duration="507000" />
-      <workItem from="1552741285861" duration="3682000" />
+      <workItem from="1552741285861" duration="6116000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96561000" />
+    <option name="totallyTimeSpent" value="98995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1837" height="1054" extended-state="0" />
@@ -371,13 +370,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -419,17 +411,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="377" column="28" selection-start-line="377" selection-start-column="28" selection-end-line="377" selection-end-column="28" />
+        <state relative-caret-position="586">
+          <caret line="400" column="100" lean-forward="true" selection-start-line="400" selection-start-column="100" selection-end-line="400" selection-end-column="100" />
           <folding>
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="e#4471#4499#0" expanded="true" />
           </folding>
         </state>
