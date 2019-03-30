@@ -7370,3 +7370,16 @@ button.close {
     /*display : none;*/
     /*}*/
 /*# sourceMappingURL=bootstrap.min.css.map */
+
+/*Novice Newcomper Bio Divs*/
+.novice-newcomer {
+    width:18%;
+    text-align:center;
+    display:block;
+    background-color: transparent;
+    border: 1px solid transparent;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1px;
+    float:left;
+}

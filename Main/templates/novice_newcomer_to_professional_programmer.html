@@ -1,5 +1,20 @@
 {% extends "bloglayout.html" %}
 {% block content %}
+
+<style>
+    .novice-newcomer {
+    width:18%;
+    text-align:center;
+    display:block;
+    background-color: transparent;
+    border: 1px solid transparent;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1px;
+    float:left;
+}
+</style>
+
 <section id="entity_section" class="entity_section">
 
     <div class="container">
@@ -20,62 +35,53 @@
                         6Apr- 2019
                     </div>
                     <br>
+
                     <!--Div for blog image(s)-->
                     <div class="row" style="width: 100%; margin:0 auto;">
 
-                        <div class="column" style="width:15%; text-align:center; display:block;
-                        background-color: transparent; border: 1px solid transparent; margin-left: 2.5%;
-                        margin-right: 2.5%; margin-bottom: 1px; float:left;">
+                        <div class="column novice-newcomer">
                             <img class="img-responsive"
                                  src=""
-                                 alt="Headshot, Dave M., developer at Very"/>
+                                 alt="Headshot, Dave M., Software Engineer, Very"/>
                             <p>Dave M.</p>
-                            <p>Software Engineer at <a href="https://www.verypossible.com/">Very</a></p>
+                            <p>Software Engineer<br><a href="https://www.verypossible.com/">Very</a></p>
                             <p>"Have patience. Find a mentor."</p>
                         </div>
 
 
-                        <div class="column" style="width:15%; text-align:center; display:block;
-                        background-color: transparent; border: 1px solid transparent; margin-left: 2.5%;
-                        margin-right: 2.5%; margin-bottom: 1px; float:left;">
+                        <div class="column novice-newcomer">
                             <img class="img-responsive"
                                  src="static/img/Krystal_Flores.jpeg"
-                                 alt="Headshot, Krystal Flores., Backend engineer at Simple Habit"/>
+                                 alt="Headshot, Krystal Flores., Backend Software Engineer, Simple Habit"/>
                             <p>Krystal F.</p>
-                            <p>Backend Engineer at <a href="https://www.simplehabit.com/">Simple Habit</a></p>
+                            <p>Backend Software Engineer<br><a href="https://www.simplehabit.com/">Simple Habit</a></p>
                             <p>"Don’t be afraid to ask for help."</p>
                         </div>
 
-                        <div class="column" style="width:15%; text-align:center; display:block;
-                        background-color: transparent; border: 1px solid transparent; margin-left: 2.5%;
-                        margin-right: 2.5%; margin-bottom: 1px; float:left;">
+                        <div class="column novice-newcomer">
                             <img class="img-responsive"
                                  src="static/img/Shoaib_Ahamed.jpg"
-                                 alt="Headshot, Shoaib A., Manager of Front End Development at Wiley"/>
+                                 alt="Headshot, Shoaib A., Engineering Manager, Wiley"/>
                             <p>Shoaib A.</p>
-                            <p>Manager of Front End Development at <a href="https://www.wiley.com/en-us">Wiley</a></p>
+                            <p>Engineering Manager<br><a href="https://www.wiley.com/en-us">Wiley</a></p>
                             <p>"Done is better than perfect."</p>
                         </div>
 
-                        <div class="column" style="width:15%; text-align:center; display:block;
-                        background-color: transparent; border: 1px solid transparent; margin-left: 2.5%;
-                        margin-right: 2.5%; margin-bottom: 1px; float:left;">
+                        <div class="column novice-newcomer">
                             <img class="img-responsive"
                                  src="static/img/Richard_H.jpg"
-                                 alt="Headshot, Richard, Full-stack software engineer at Hustle"/>
+                                 alt="Headshot, Richard, Full-stack Software Engineer, Hustle"/>
                             <p>Richard H.</p>
-                            <p>Full-stack software engineer at <a href="https://www.hustle.com/">Hustle</a></p>
+                            <p>Full-stack Software Engineer<br><a href="https://www.hustle.com/">Hustle</a></p>
                             <p>"Create projects that solve actual problems in your life."</p>
                         </div>
 
-                        <div class="column" style="width:15%; text-align:center; display:block;
-                        background-color: transparent; border: 1px solid transparent; margin-left: 2.5%;
-                        margin-right: 2.5%; margin-bottom: 1px; float:left;">
+                        <div class="column novice-newcomer">
                             <img class="img-responsive"
                                  src="static/img/Abby_Garcia.png"
-                                 alt="Headshot, Abby G., Front end developer Abby G. at LinkedIn"/>
+                                 alt="Headshot, Abby G., Front End Software Engineer, LinkedIn"/>
                             <p>Abby G.</p>
-                            <p>Front End Developer at <a href="https://www.linkedin.com/feed/">LinkedIn</a></p>
+                            <p>Front End Software Engineer<br><a href="https://www.linkedin.com/feed/">LinkedIn</a></p>
                             <p>"Veterans who have been in this field for years will have the same questions you have."
                             </p>
                         </div>
@@ -83,44 +89,53 @@
                     </div>
 
                     <br>
+
                     <!--Div for all blog content/copy-->
                     <div style="text-align: justify;">
+
                     <!--Intro paragraph-->
                         <p>
-                            I am what many would call a 'self taught' software engineer. I'm full-time, back end
+                            I am what many would call a 'self taught' software engineer. I'm a full-time, backend
                             software engineer at <a href="https://venmo.com/">Venmo</a>, and yet I don't possess any
                             formal education in computer science (or anything even close to it). As a self-taught
-                            engineer, I frequently get asked how I successfully transitioned into development without
+                            engineer, I frequently get asked how I successfully transitioned into engineering without
                             any formal training. I get this question so frequently that I decided to pose it to five
                             other self-taught engineers. I found their stories informative, inspiring, and at times
                             downright hilarious. Read on to learn how these five individuals transformed themselves
-                            from novice newcomers that they once were, to the professional programmers that they are
+                            from the novice newcomers that they once were, to the professional programmers that they are
                             today.
                         </p>
                         <br>
+
+                        <!--Question 1-->
                         <h2>Q: What inspired you to learn how to code?</h2>
 
-                        <p><b>Dave: </b> I visited a start-up incubator in New York and watched people design web and
+                        <p>
+                            <b>Dave: </b> I visited a start-up incubator in New York and watched people design web and
                             mobile apps. It was exciting. I wanted in.
                         </p>
                         <br>
 
-                        <p><b>Krystal: </b>Honestly, it was my husband. We had just started dating. As a software
-                            engineer himself, he told me he thought I could program and program well. I never liked
-                            math in school and somehow thought math would be connected to basic programming, so I
-                            laughed at his suggestions. For a year, he repeated, “Hey, I think you can do it.” Finally,
-                            he found something that piqued my interest. I’m a huge art fan, so he bought a Typography
-                            of the Web course. I ate it up. I wanted to create something with code. He told me about
-                            <a href="https://www.codecademy.com/">codecademy.com</a>. I finished their HTML & CSS
-                            course and felt inspired. From there, I begin to seek out other resources to continue
-                            coding. It was fun!
+                        <p>
+                            <b>Krystal: </b>Honestly, it was my husband. We had just started dating. As a software
+                            engineer himself, he told me that he thought I could program, and program well. I never
+                            liked math in school, and I thought math would be connected to basic programming, so
+                            initially I laughed at his suggestion. For a year, he repeated: “Hey, I think you can do
+                            it.” Finally, he found something that piqued my interest. I’m a huge art fan, so he bought a
+                            <a href="https://en.wikipedia.org/wiki/Typography"> Typography</a> of the Web course.
+                            I ate it up. I wanted to create something with code. He told me about
+                            <a href="https://www.codecademy.com/">codecademy.com</a>. I finished their
+                            <a href="https://www.w3schools.com/whatis/whatis_html.asp">HTML</a> &
+                            <a href="https://www.w3schools.com/whatis/whatis_css.asp">CSS</a> courses and felt
+                            inspired. From there, I begin to seek out other resources to continue coding. It was fun!
                         </p>
                         <br>
 
-                        <p><b>Shoaib: </b>In short, back in 2014, I had a side business making websites for small
+                        <p>
+                            <b>Shoaib: </b>In short, back in 2014, I had a side business making websites for small
                             businesses. Since I was not a developer (yet), I shipped the development work overseas.
-                            On one project, the developer started BSing me &mdash;saying 'Oh this part of the site
-                            takes 3 months to make...' I was not a programmer, therefore, I could not verify whether the
+                            On one project, the developer started B.S.ing me &mdash;saying 'Oh this part of the site
+                            takes 3 months to make...' I was not a programmer, therefore, I could not verify if the
                             job really took as long as he was claiming. Ultimately, the project failed and I had to
                             return the client's money. The fact that I didn't know enough to manage a technical person
                             angered me, and I decided to start learning how to code myself, so that I could have more
@@ -128,7 +143,8 @@
                         </p>
                         <br>
 
-                        <p><b>Richard: </b>I actually learned to code when I was around ten years old. I taught myself
+                        <p>
+                            <b>Richard: </b>I actually learned to code when I was around ten years old. I taught myself
                             <a href="https://en.wikipedia.org/wiki/BASIC">BASIC</a>, and then
                             <a href="https://en.wikipedia.org/wiki/Pascal_(programming_language)">Pascal</a>. I don't
                             remember exactly what drew me into it except that we had a computer (this was 1980
@@ -138,22 +154,26 @@
                             doing theater and working in New York as a production graphic designer at a newspaper
                             (I did print layout &mdash;we used computers, but not the internet), and I slowly began
                             to gravitate back to my early love of programming because:
-                            <ol type="a">
-                                <li>It provided a way to solve problems, both at work through using JavaScript to
-                                    script the layout program Adobe InDesign, and outside work where I created an
-                                    attendance app for my recreational soccer team</li>
-                                <li>Because I began to crave having a day job that would stretch my brain more than the
-                                    one I was in.</li>
+                            <ol>
+                                <li>It provided a way to solve problems, both at work (through using JavaScript to
+                                    script the layout program Adobe InDesign), and outside work where I created an
+                                    attendance app for my recreational soccer team.
+                                </li>
+                                <li>I began to crave having a day job that would stretch my brain more than the one I
+                                    was in.
+                                </li>
                             </ol>
+
                             As for whether
                             the knowledge I had from when I was a kid helped me get back into it so many years later,
-                            the answer is, I have no idea. The programming languages and the ecosystems then are
-                            very different today, but I imagine that some of the basic concepts I learned in the 80s
-                            remained helpful.
+                            the answer is: I have no idea. The programming languages and the ecosystems then were
+                            very different than they are today, but I imagine that some of the basic concepts I learned
+                            in the 80s remained helpful.
                         </p>
                         <br>
 
-                        <p><b>Abby: </b>My senior year in college I took at Web Design course that introduced me to
+                        <p>
+                            <b>Abby: </b>My senior year in college I took a Web Design course that introduced me to
                             programming. It was an enlightening experience, but it was way too late to change my major
                             to computer science. After college, I saw friends, previous classmates, and co-workers who
                             had already stepped into the software engineering world. I saw what they were creating and
@@ -161,44 +181,49 @@
                         </p>
                         <br>
 
+                        <!--Question 2-->
                         <h2>Q: How did you learn how to code?</h2>
 
-                        <p><b>Dave: </b> I had taken courses in C++ and Java while in high school. Didn't code for the
+                        <p>
+                            <b>Dave: </b> I had taken courses in C++ and Java while in high school. Didn't code for the
                             next 10 years. Then I enrolled in a 3-month web development immersion course at
                             <a href="https://generalassemb.ly">General Assembly</a> in New York.
                         </p>
                         <br>
 
-                        <p><b>Krystal: </b> Self-study. It was hard. I used <a href="https://www.codecademy.com/">
-                            codecademy.com</a>, <a href="https://onemonth.com/">onemonth.com</a>,
-                            <a href="https://www.pluralsight.com/codeschool">codeschool.com (now part of
+                        <p>
+                            <b>Krystal: </b> Self-study. It was hard. I used <a href="https://www.codecademy.com/">
+                            CodeAcademy</a>, <a href="https://onemonth.com/">One Month</a>,
+                            <a href="https://www.pluralsight.com/codeschool">CodeSchool</a> (now part of
                             <a href="https://www.pluralsight.com/">Pluralsight</a>),
                             <a href="https://www.michaelhartl.com/">Michael Hartl</a> books (thank you!),
                             and many other books.
                         </p>
                         <br>
 
-                        <p><b>Shoaib:</b> I started learning online, first from
-                            <a href="https://www.w3schools.com/">w3schools</a>, then from
-                            <a href="https://www.codecademy.com/">Codecademy</a>. Eventually, I also took part-time
-                            evening classes at <a href="https://nycda.com/">New York Code & Design Academy</a>, a
+                        <p>
+                            <b>Shoaib:</b> I started learning online, first from
+                            <a href="https://www.w3schools.com/">W3schools</a>, then from
+                            <a href="https://www.codecademy.com/">CodeAcademy</a>. Eventually, I also took part-time
+                            evening classes at the <a href="https://nycda.com/">New York Code & Design Academy</a>, a
                             comparatively new <a href="https://en.wikipedia.org/wiki/Coding_bootcamp">coding bootcamp</a>
                             at the time, back in 2015. This bootcamp was a door opener for me. It gave me the
-                            opportunity to meet meet other coders for the first time, and it gave me a community of
+                            opportunity to meet other coders for the first time, and it gave me a community of
                             people who I could ask questions of when I was stuck.
                         </p>
                         <br>
 
-                        <p><b>Richard: </b>In round one, starting when I was 10, I was almost entirely self-taught,
+                        <p>
+                            <b>Richard: </b>In round one, starting when I was 10, I was almost entirely self-taught,
                             from manuals. In round two, when I was 40, I learned by reading books and things on the
                             internet, doing a couple of <a href="https://www.coursera.org/">Coursera</a> courses,
                             doing small code projects at work (and on the Abobe forums from the ten people in the world
-                            who know what they're doing in terms of scripting InDesign), going to Meetups that I barely
-                            understood, and creating side projects and putting them up on
-                            <a href="https://github.com/">Github</a>. In addition, I also took three short continuing
-                            education classes at
-                            <a href="https://www.nyu.edu/">NYU</a> (two on JavaScript and one on CSS and designing for
-                            mobile). The mobile course was pretty good. The first JavaScript course was very bad, but
+                            who knew what they're doing in terms of scripting InDesign), going to
+                            <a href="https://www.meetup.com/">Meetups</a> that I barely understood, and creating side
+                            projects and putting them up on <a href="https://github.com/">Github</a>. In addition, I
+                            also took three short continuing education classes at
+                            <a href="https://www.nyu.edu/">NYU</a>: two on JavaScript and one on CSS and designing for
+                            mobile. The mobile course was pretty good. The first JavaScript course was very bad, but
                             the second one was really good and instilled in me the belief that I could actually do this
                             for a living. But again, almost all of my learning was done outside of those classes.
                             The main thing I got out of them was inspiration and affirmation. After I had been a
@@ -209,87 +234,109 @@
                         </p>
                         <br>
 
-                        <p><b>Abby: </b>Books, friends, self-study, and Meetups.
+                        <p>
+                            <b>Abby: </b>Books, friends, self-study, and <a href="https://www.meetup.com/">Meetups</a>.
                         </p>
                         <br>
 
+                        <!--Question 3-->
                         <h2>Q: When did you start learning how to code?</h2>
 
-                        <p><b>Dave: </b>I took the 12-week <a href="https://generalassemb.ly">General Assembly</a>
+                        <p>
+                            <b>Dave: </b>I took the 12-week <a href="https://generalassemb.ly">General Assembly</a>
                             bootcamp in the Winter/Spring of 2014.
                         </p>
                         <br>
 
-                        <p><b>Krystal: </b> I entertained the idea of going into development towards the beginning of
+                        <p>
+                            <b>Krystal: </b> I entertained the idea of going into development towards the beginning of
                             2014. I didn’t seriously start learning to code until mid 2015. Yeah, it took a while for
-                            me to realize I wanted to do it. (That’s OK!)
+                            me to realize I wanted to do it (that’s OK!).
                         </p>
                         <br>
 
-                        <p><b>Shoaib:</b> I think I started the coding bootcamp in May 2015.
+                        <p>
+                            <b>Shoaib:</b> I think I started the coding bootcamp in May 2015.
                         </p>
                         <br>
 
-                        <p><b>Richard: </b>Round one: Around 1980. Round two: It was a really slow process with a lot
+                        <p>
+                            <b>Richard: </b>Round one: Around 1980. Round two: It was a really slow process with a lot
                             of stops and starts. I began around 2007, doing hobby projects and small scripting tasks at
                             work. Some time after that, I remember a two-year period there where I gave up on the idea
                             of actually doing it for a living, because I didn't want it to colonize my mind. Then I
                             changed my mind and started thinking seriously about doing it professionally. At the
                             beginning of 2012, I committed myself to that path by going down to half-time at my job,
                             in an irreversible way. I got a friend of mine the gig of doing half my job, and told her
-                            &mdash;and only her &mdash;what my ultimate plan was, and that she could have my whole job eventually,
+                            &mdash;and only her &mdash;what my ultimate plan was, and that she could have my whole job eventually
                             if she could stick with the part-time gig for a while. I felt I needed the extra time every
                             week to ramp up my skills, but once I took that step, I was on track to either run out of
-                            savings or land a software development gig.</p>
-                        <p><b>Abby: </b>Fall of 2016.
+                            savings or land a software development gig.
                         </p>
                         <br>
 
+                        <p>
+                            <b>Abby: </b>Fall of 2016.
+                        </p>
+                        <br>
+
+                        <!--Question 4-->
                         <h2>Q: How long did it take you to secure your first coding job, from the time you started
                             looking, to the time that you received an offer that you accepted?</h2>
 
-                        <p><b>Dave: </b>Within a few weeks after finishing the course, I took on a full-time
+                        <p>
+                            <b>Dave: </b>Within a few weeks after finishing the course, I took on a full-time
                             freelancing role for a startup that lasted for two years.
                         </p>
                         <br>
 
-                        <p><b>Krystal: </b>Three months of actively looking; FYI, I’ve since realized this is unusually
+                        <p>
+                            <b>Krystal: </b>Three months of actively looking. FYI, I’ve since realized this is unusually
                             fast for someone transitioning into their first coding job. It's a normal timespan for your
                             second, third, etc. coding jobs.
                         </p>
                         <br>
 
-                        <p><b>Shoaib: </b>So I came from a very non-technical background. After I completed the
+                        <p>
+                            <b>Shoaib: </b>So I came from a very non-technical background. After I completed the
                             bootcamp in the summer of 2015, getting a coding job was not even my priority. I was not
                             confident enough to apply for a technical job. I was happy enough being able to make static
                             websites and understand code a little better. However, right after completing the coding
-                            bootcamp, I started teaching how to code in a small paid setting. That gave me the
-                            experience needed to get hired by <a href="http://www2.cuny.edu/">CUNY</a> in 2016, teaching
-                            <a href="https://www1.nyc.gov/site/tlc/about/tlc-rules.page">TLC laws</a>. Meanwhile, I
-                            started my Master's in Computer Science in 2016, and graduated in May 2018. After I
-                            graduated, I started actively looking for a development job in September 2018, and then
-                            finally accepted an offer in December 2018.
-                        </p>
-
-                        <p><b>Richard: </b>Six months, although I only applied for a few random things for the first
-                            three months, during which time I didn't feel that I was really ready. Once I did feel I
-                            was ready, I got more systematic about the job search, and it took me another three months
-                            from that point.</p>
-
-                        <p><b>Abby: </b>Around a year.
+                            bootcamp, I started teaching others how to code in a small paid setting. That gave me the
+                            teaching experience that I needed to get hired by <a href="http://www2.cuny.edu/">CUNY</a>
+                            in 2016 teaching <a href="https://www1.nyc.gov/site/tlc/about/tlc-rules.page">TLC laws</a>.
+                            Meanwhile, I started my Master's in Computer Science in 2016, and graduated in May 2018.
+                            After I graduated, I started actively looking for a development job in September 2018, and
+                            then finally accepted an offer in December 2018.
                         </p>
                         <br>
 
+                        <p>
+                            <b>Richard: </b>Six months, although I only applied for a few random things for the first
+                            three months, during which time I didn't feel that I was really ready. Once I did feel I
+                            was ready, I got more systematic about the job search, and it took me another three months
+                            from that point.
+                        </p>
+                        <br>
+
+                        <p>
+                            <b>Abby: </b>Around a year.
+                        </p>
+                        <br>
+
+                        <!--Question 5-->
                         <h2>Q: What's the most important thing you wish you knew/understood when you first started
                             learning how to code that you know now?</h2>
 
-                        <p><b>Dave: </b>Programming is hard. Early on, you may get frustrated or overwhelmed. Remember
-                            that even the "experts" have knowledge gaps. They too rely on StackOverflow,
-                            and occasionally create bugs :).
+                        <p>
+                            <b>Dave: </b>Programming is hard. Early on, you may get frustrated or overwhelmed. Remember
+                            that even the "experts" have knowledge gaps. They too rely on
+                            <a href="https://stackoverflow.com/">StackOverflow</a>, and occasionally create bugs :)
                         </p>
                         <br>
 
-                        <p><b>Krystal: </b>
+                        <p>
+                            <b>Krystal: </b>
                             <ol>
                                 <li>
                                    Don’t be afraid to ask for help. Sometimes you need to try something for hours on
@@ -304,19 +351,22 @@
                         </p>
                         <br>
 
-                        <p><b>Shoaib:</b>If I knew then what I know now, I would have stuck to one tech stack. For
+                        <p>
+                            <b>Shoaib: </b>If I knew then what I know now, I would have stuck to one tech stack. For
                             example, it's better to study a Javascript-centric stack, and learn everything possible
-                            about it &mdash;Javascript as a programing language, JQuery as library, React JS as a
-                            framework&mdash;before moving onto something Because of my versatile journey from
-                            self-study to a bootcamp to getting my master's in Computer Science, I ended up learning
-                            about everything from full-stack development with Ruby on rails, to front-end development
-                            using Javascript and JQuery, to Android development using Java, e.t.c. I see now that I
-                            didn't have to know all of these languages and tools in order to land to a junior developer
-                            position, and it would be more helpful if I knew fewer of them more in depth.
+                            about it &mdash;Javascript as a programing language, <a href="https://jquery.com/">JQuery</a> as
+                            library, <a href="https://reactjs.org/">React JS</a> as a framework &mdash;before moving onto
+                            something else. Because of my versatile journey from self-study to a bootcamp to getting my
+                            master's in Computer Science, I ended up learning about everything from full-stack
+                            development with Ruby on rails, to front-end development using Javascript, to Android
+                            development using Java, e.t.c. I see now that I didn't have to know all of these languages
+                            and tools in order to land to a junior developer position, and it would be more helpful if
+                            I knew fewer of them more in depth.
                         </p>
                         <br>
 
-                        <p><b>Richard: </b>
+                        <p>
+                            <b>Richard: </b>
                             <ol>
                                 <li>
                                     Git isn't as scary as it seems at first. Whenever you find yourself frustrated trying to
@@ -346,18 +396,21 @@
                         </p>
                         <br>
 
-                        <p><b>Abby: </b>Success doesn’t happen overnight. When you first start learning how to code,
+                        <p>
+                            <b>Abby: </b>Success doesn’t happen overnight. When you first start learning how to code,
                             it's frustrating and confusing,  but over time it becomes a  little less frustrating and
                             less confusing. Some days will be easier than others, but as you'll see, veterans who have
                             been in this field for years will have the same questions you have. Coding is always
-                            evolving, maintain an open mind, keep learning, and be kind to yourself.
+                            evolving. Maintain an open mind, keep learning, and be kind to yourself.
                         </p>
                         <br>
 
+                        <!--Question 6-->
                         <h2>Q: What advice would you give to someone who is considering transitioning into
-                            development?</h2>
+                            software engineering?</h2>
 
-                        <p><b>Dave: </b>Start playing with programming. There is no shortage of free online resources
+                        <p>
+                            <b>Dave: </b>Start playing with programming. There is no shortage of free online resources
                             to start learning. See how you feel after giving it a shot. If you are the type of person
                             who is an effective self-teacher, consider a free intensive online course or sign up for a
                             paid course. If you prefer an in-person traditional learning environment, you may want to
@@ -367,7 +420,8 @@
                         </p>
                         <br>
 
-                        <p><b>Krystal: </b>
+                        <p>
+                            <b>Krystal: </b>
                             <ol>
                                 <li>
                                     Honestly, think hard about whether this is what you really want and whether you’re
@@ -390,7 +444,7 @@
                                     sites.
                                 </li>
                                 <li>
-                                    Prepare for the interviews! I recommend <a href="https://leetcode.com/"LeetCode</a>
+                                    Prepare for the interviews! I recommend <a href="https://leetcode.com/">LeetCode</a>
                                     and <a href="https://www.interviewcake.com/">Interview Cake </a> for beginners. The
                                     classic <a href="http://www.crackingthecodinginterview.com/">Cracking the Coding
                                     Interview</a> is great, but not beginner friendly. Still, if you’ve got the patience
@@ -400,18 +454,18 @@
                                     Though not necessarily advice, here are some helpful educational links on APIs, and
                                     the differences between frontend, backend, and data engineering:
                                     <ol>
-                                        <li>
+                                        <li style="list-style-type: circle;>
                                             <a><a href="https://learn.onemonth.com/front-end-vs-back-end-developers">
                                                 Front-end vs. Back-end Developers</a> (w/ video!)
                                         </li>
-                                        <li>
+                                        <li style="list-style-type: circle;>
                                             <a href="https://skillcrush.com/2017/02/27/front-end-back-end-full-stack/">
                                             Front End, Back End, Full Stack—What Does it All Mean?</a>
                                         </li>
-                                        <li>
+                                        <li style="list-style-type: circle;>
                                             <a href="https://www.dataquest.io/blog/what-is-a-data-engineer">
                                             What is a Data Engineer?</a</li>
-                                        <li>
+                                        <li style="list-style-type: circle;>
                                             <a href="https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f">
                                                 What exactly IS an API?</a>
                                         </li>
@@ -421,11 +475,13 @@
                         </p>
                         <br>
 
-                        <p><b>Shoaib: </b>Done is better than perfect.
+                        <p>
+                            <b>Shoaib: </b>Done is better than perfect.
                         </p>
                         <br>
 
-                        <p><b>Richard: </b>
+                        <p>
+                            <b>Richard: </b>
                             <ol>
                                 <li>Give yourself a solid foundation in computer science and programming basics. Take
                                     classes like
@@ -449,25 +505,30 @@
                         </p>
                         <br>
 
-                        <p><b>Abby: </b>It’s not just about coding, but also learning the fundamentals of it all. It's
-                            easy to get carried away with shortcuts like ES6,  jQuery or frameworks. You'll take things
-                            for granted and never really understand how or why they work under the hood. Take the time
-                            to learn the fundamentals so then you'll have the solid foundation to move around from
-                            language to language. Dabble in some C++ and you'll see what I mean :).
+                        <p>
+                            <b>Abby: </b>It’s not just about coding, but also learning the fundamentals of it all. It's
+                            easy to get carried away with shortcuts like
+                            <a href="http://es6-features.org/#Constants">ES6</a>,  <a href="https://jquery.com/">
+                            jQuery</a> or frameworks. You'll take things for granted and never really understand how or
+                            why they work under the hood. Take the time to learn the fundamentals so then you'll have
+                            the solid foundation to move around from language to language. Dabble in some C++ and
+                            you'll see what I mean :)
                         </p>
                         <br>
 
+                        <!--Question 7-->
+                        <h2>Q: Any additional thoughts about your transition into software engineering?</h2>
 
-                        <h2>Q: Any additional thoughts about your transition into development?</h2>
-
-                        <p><b>Dave: </b>I would not have learned as much as I did in a 3-month period had I not joined
+                        <p>
+                            <b>Dave: </b>I would not have learned as much as I did in a 3-month period had I not joined
                             an in-person bootcamp. And five years later, I'm still in contact with classmates.
                         </p>
                         <br>
 
-                        <p><b>Kavan: </b>It will be hard. Figure out what calms you and helps you get your head back in
+                        <p>
+                            <b>Krystal: </b>It will be hard. Figure out what calms you and helps you get your head back in
                             the game. There will be frustrating times. You will have anxiety and impostor syndrome.
-                            Know that. Own it and prepare for it. Exercise works for some people (ex. taking walking
+                            Know that. Own it and prepare for it. Exercise works for some people (e.g. taking walking
                             breaks). I found out meditation works best for me and it’s one of the reasons I chose to
                             work at my current company. I recommend
                             <a href="https://www.simplehabit.com/kindness-to-self">this</a> meditation for frustrating
@@ -475,19 +536,22 @@
                         </p>
                         <br>
 
-                        <p><b>Shoaib: </b> You can get there by envisioning yourself as already being there.
+                        <p>
+                            <b>Shoaib: </b> You can get there by envisioning yourself as already being there.
                             Our brain can barely distinguish what's really happening and what's just happening in our
                             head. That's why we get scared when we watch a horror movie, even though we know we just
-                            paid to see what we know is fake. See yourself hired and successful, and you will be.
+                            paid to see what we know is fake. See yourself as hired and successful, and you will be.
                         </p>
                         <br>
 
-                        <p><b>Richard: </b>While you're in the initial learning phases, make sure to work on projects
+                        <p>
+                            <b>Richard: </b>While you're in the initial learning phases, make sure to work on projects
                             you enjoy, not just ones you think you should work on in preparation for some future job!
                         </p>
                         <br>
 
-                        <p><b>Abby: </b>Coding is only the beginning. Learn computer science fundamentals. Be nice to
+                        <p>
+                            <b>Abby: </b>Coding is only the beginning. Learn computer science fundamentals. Be nice to
                             yourself. Everything takes time. Self doubt is real. Power through those moments and don't
                             give up! You can do it and remember to study study study and practice practice practice!
                         </p>
@@ -504,5 +568,4 @@
     </div>
 
 </section>
-
 {% endblock %}
