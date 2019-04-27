@@ -874,8 +874,6 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                 In the Elastic Beanstalk dashboard, in the left hand panel, select the 'Configuration'
                                 option. On the resulting page, in the 'Software' box in the upper left hand corner,
                                 select the 'Modify' text towards the bottom of this box.
-                                <!--Update the value of <b>WSGIPath</b> to <b>Main/application.py</b>, and update the value-->
-                                <!--of <b>Directory</b> to <b>Main/static/</b>.-->
                                  <a href="#" onclick="return false;">
                                      <i class="fa fa-picture-o" aria-hidden="true" type="button"
                                         class="btn btn-info btn-lg" data-toggle="modal"
@@ -917,12 +915,12 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                  <a href="#" onclick="return false;">
                                      <i class="fa fa-picture-o" aria-hidden="true" type="button"
                                         class="btn btn-info btn-lg" data-toggle="modal"
-                                        data-target="#ElasticBeanstalkURL">
+                                        data-target="#WSGIPathUpdates">
                                      </i>
                                  </a>
 
                                 <!--WSGI modal -->
-                                <div id="ElasticBeanstalkURL" class="modal fade" role="dialog">
+                                <div id="WSGIPathUpdates" class="modal fade" role="dialog">
 
                                   <div class="modal-dialog modal-content">
 
@@ -932,7 +930,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                        <h4 class="modal-title">Elastic Beanstalk Configuration</h4>
+                                        <h4 class="modal-title">Update Paths</h4>
 
                                       </div>
                                       <div class="modal-body">
@@ -957,12 +955,12 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                  <a href="#" onclick="return false;">
                                      <i class="fa fa-picture-o" aria-hidden="true" type="button"
                                         class="btn btn-info btn-lg" data-toggle="modal"
-                                        data-target="#ElasticBeanstalkURL">
+                                        data-target="#FinalURL">
                                      </i>
                                  </a>
 
                                 <!--Final flask app modal -->
-                                <div id="ElasticBeanstalkURL" class="modal fade" role="dialog">
+                                <div id="FinalURL" class="modal fade" role="dialog">
 
                                   <div class="modal-dialog modal-content">
 
@@ -977,7 +975,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                       </div>
                                       <div class="modal-body">
                                         <img class="img-responsive" src="../../static/img/final_flask_app.png"
-                                             alt="Search for Elastic Beanstalk">
+                                             alt="FinalURL">
 
                                       </div>
 

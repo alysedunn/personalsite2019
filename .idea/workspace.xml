@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="618d6dbd-d2c6-4f82-94f1-5e501bed0bcf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Main/static/img/WSGI_path_updates.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/static/img/configuration.png" beforeDir="false" afterPath="$PROJECT_DIR$/Main/static/img/configuration.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/blog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/templates/flask_aws.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/flask_aws.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main/templates/novice_newcomer_to_professional_programmer.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/templates/flask_aws.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="719" column="58" lean-forward="true" selection-start-line="719" selection-start-column="58" selection-end-line="719" selection-end-column="58" />
+            <state relative-caret-position="476">
+              <caret line="977" column="57" selection-start-line="977" selection-start-column="57" selection-end-line="977" selection-end-column="57" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -68,7 +63,7 @@
                 <element signature="e#49736#49743#1" expanded="true" />
                 <element signature="e#51972#51979#1" expanded="true" />
                 <element signature="e#50877#50883#0" expanded="true" />
-                <element signature="e#51760#51767#1" expanded="true" />
+                <element signature="e#53687#53694#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/Main/application.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+              <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -99,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/Main/templates/blog.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="142">
-              <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+              <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -108,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
               </folding>
@@ -120,7 +115,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>img</find>
       <find>static</find>
       <find>&quot;static/</find>
       <find>&quot;static</find>
@@ -147,9 +141,10 @@
       <find>This will likely be</find>
       <find>top level</find>
       <find>10-20</find>
-      <find>Main/static</find>
       <find>'Modi</find>
       <find>configuration.png</find>
+      <find>Main/static</find>
+      <find>Elastic Beanstalk Confi</find>
     </findStrings>
     <replaceStrings>
       <replace>static</replace>
@@ -228,13 +223,6 @@
               <item name="personalsite2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="personalsite2019" type="462c0819:PsiDirectoryNode" />
               <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="personalsite2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="personalsite2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -276,12 +264,12 @@
       <workItem from="1549059186166" duration="63287000" />
       <workItem from="1552353564019" duration="507000" />
       <workItem from="1552741285861" duration="17652000" />
-      <workItem from="1554565414683" duration="13872000" />
+      <workItem from="1554565414683" duration="14397000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124403000" />
+    <option name="totallyTimeSpent" value="124928000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1452" y="23" width="1906" height="1051" extended-state="0" />
@@ -435,21 +423,21 @@
     <entry file="file://$PROJECT_DIR$/Main/application.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/templates/blog.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
-          <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/templates/key_terms_and_definitions.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
@@ -474,8 +462,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/templates/flask_aws.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="719" column="58" lean-forward="true" selection-start-line="719" selection-start-column="58" selection-end-line="719" selection-end-column="58" />
+        <state relative-caret-position="476">
+          <caret line="977" column="57" selection-start-line="977" selection-start-column="57" selection-end-line="977" selection-end-column="57" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -521,7 +509,7 @@
             <element signature="e#49736#49743#1" expanded="true" />
             <element signature="e#51972#51979#1" expanded="true" />
             <element signature="e#50877#50883#0" expanded="true" />
-            <element signature="e#51760#51767#1" expanded="true" />
+            <element signature="e#53687#53694#1" expanded="true" />
           </folding>
         </state>
       </provider>
