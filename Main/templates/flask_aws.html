@@ -17,7 +17,7 @@
 
                     <!--Div for blog date-->
                     <div class="entity_meta">
-                        31Mar- 2019
+                        1Apr- 2019
                     </div>
 
                     <!--Div for blog image(s)-->
@@ -53,14 +53,14 @@
                             <a href="https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80">this</a>
                             blog post on using the two together. All  were helpful, but I was so new to development
                             that even with these and other resources, I found the process horribly frustrating,
-                            and I ran into one time-consuming bug after another.
+                            and I ran into one maddening error after another.
                         </p>
                         <p>
                             These days when I deploy my Flask apps to Elastic Beanstalk, I still run into some of the
                             same hurdles that I encountered back then. Fortunately, over time I've learned how to
                             power through each error more quickly. In an effort to continue making this process easier
                             for myself, and to assist others who may still be struggling, I've created the following
-                            step-by-step guide to deploying Flask apps to AWS Elastic Beanstalk. A few notes about this
+                            step-by-step guide on deploying Flask apps to AWS Elastic Beanstalk. A few notes about this
                             guide:
                             <ol>
                                 <li>
@@ -88,9 +88,9 @@
                             <h2>Step 0: Create a <a href="{{ url_for('key_terms_and_definitions') }}">virtual
                             environment!</a></h2><br>Ok, to be fair, you can totally deploy a Flask application without
                             using a virtual environment. However, I feel so strongly that you <i>should</i> run your
-                            app in a virtual environment that I'm including it as a step in this tutorial. Every time
+                            app in a virtual environment that I'm including this as a step in this tutorial. Every time
                             I've tried to deploy a Flask app to Elastic Beanstalk outside of the safety of a virtual
-                            environment, I've encountered at least one maddening error that ate up valuable time, the
+                            environment, I've encountered at least one vexing error that ate up valuable time, the
                             most recent of which was
                             <span data-toggle="modal" data-target="#SixError" style="color: #337ab7;">
                                 <a href="#" onclick="return false;">this</a>
@@ -267,18 +267,18 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                             <li>
                                 The app's application file is named <code>application.py</code> (as opposed to,
                                 say, <code>app.py</code>). This is the file that contains all of the routes for your
-                                app. The first line in this file is likely
+                                app. The first line in this file is likely something like:
                                 <code>from flask import Flask, render_template</code>
                             </li>
                             <br>
                             <li>
-                                Within <code>application.py</code>, &nbsp;<code>Flask(__name__)</code> is assigned
-                                to <code>application</code> (as opposed to, say, <code>app</code>).
+                                <code>Flask(__name__)</code> is assigned to <code>application</code> (as opposed to,
+                                say, <code>app</code>) in <code>application.py</code>.
                             </li>
                             <br>
                             <li>
-                                Within <code>application.py</code>, &nbsp;<code>"__name__"</code> is assigned
-                                to <code>"__main__"</code>, as seen at the bottom of
+                                <code>"__name__"</code> is assigned to <code>"__main__"</code> in
+                                <code>application.py</code>, as seen at the bottom of
                                 <a href="https://github.com/alysedunn/personalsite2019/blob/master/Main/application.py">
                                 this </a>file.
                             </li>
@@ -302,7 +302,10 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                             if this is your first time creating one: If you're just deploying a simple Flask
                             application (like the one you may have cloned from my GitHub repo) to Elastic Beanstalk,
                             then AWS will only charge you $1.00 per month for the first year. However, after that first
-                            year, AWS will charge you upwards of $10 per month. Regardless, to create your first AWS
+                            year, AWS will charge you upwards of $10 per month.
+                        </p>
+                        <p>
+                            To create your first AWS
                             account (which will be awesomely cheap for the first year, depending on everything that you
                             choose to use it for):
                         </p>
@@ -339,7 +342,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                        <h4 class="modal-title">AWS Main Landing Page: IAM Search</h4>
+                                        <h4 class="modal-title">IAM Search</h4>
 
                                       </div>
                                       <div class="modal-body">
@@ -417,7 +420,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                        <h4 class="modal-title">Assign Access Type to User</h4>
+                                        <h4 class="modal-title">Assign "Programmatic Access"</h4>
 
                                       </div>
 
@@ -458,7 +461,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                        <h4 class="modal-title">Assign Access Group to User</h4>
+                                        <h4 class="modal-title">Assign "Administrator Access"</h4>
 
                                       </div>
 
@@ -499,7 +502,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                        <h4 class="modal-title">Add Newly Created User to Group</h4>
+                                        <h4 class="modal-title">Add User to Group</h4>
 
                                       </div>
 
@@ -586,7 +589,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
 
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                    <h4 class="modal-title">Virtual Environment Activation</h4>
+                                    <h4 class="modal-title">Virtual Environment</h4>
 
                                   </div>
 
@@ -613,8 +616,8 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                             <br>
                             <li>
                                 <code>cd</code> to into your application's <i>top</i> level directory. This will likely
-                                be  directory level above your <code>Main</code> directory. This is important. If you
-                                don't run everything from your top level directory, when you go to deploy your
+                                be  one directory level above your <code>Main</code> directory. This is important. If
+                                you don't run everything from your top level directory, when you go to deploy your
                                 application, you will encounter errors not covered in this tutorial.
                             </li>
                             <br>
@@ -622,7 +625,7 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                 In your application's top level directory, run <code>eb init</code>. This
                                 initializes Elastic Beanstalk. It will also create a git-ignored directory in your
                                 <code>Main</code> directory. Do not delete or move this directory. If you do, your
-                                deploy will fail.ls
+                                deploy will fail.
                             </li>
                             <br>
                             <li>
@@ -792,8 +795,8 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                 <code>eb create</code>. You'll be prompted to enter an environment name, DNS name, and
                                 load balancer type. It's fine to use defaults for all of this. Once you finish stepping
                                 through the prompts, you'll see some output in the terminal while Elastic Beanstalk
-                                deploys the application. It generally takes 10-20 minutes to deploy, and the console
-                                output stops when complete.&nbsp;
+                                deploys the application. It generally takes between 5 and 20 minutes to deploy, and the
+                                console output stops when complete.&nbsp;
 
                                  <a href="#" onclick="return false;">
                                      <i class="fa fa-picture-o" aria-hidden="true" type="button"
@@ -869,9 +872,10 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                             <br>
                             <li>
                                 In the Elastic Beanstalk dashboard, in the left hand panel, select the 'Configuration'
-                                option. On the resulting page, select the small 'Modify' text in the 'Software' box.
-                                Update the value of <b>WSGIPath</b> to <b>Main/application.py</b>, and update the value
-                                of <b>Directory</b> to <b>Main/static/</b>.
+                                option. On the resulting page, in the 'Software' box in the upper left hand corner,
+                                select the 'Modify' text towards the bottom of this box.
+                                <!--Update the value of <b>WSGIPath</b> to <b>Main/application.py</b>, and update the value-->
+                                <!--of <b>Directory</b> to <b>Main/static/</b>.-->
                                  <a href="#" onclick="return false;">
                                      <i class="fa fa-picture-o" aria-hidden="true" type="button"
                                         class="btn btn-info btn-lg" data-toggle="modal"
@@ -896,6 +900,44 @@ Installing collected packages: six, python-dateutil, urllib3, botocore, s3transf
                                       <div class="modal-body">
                                         <img class="img-responsive" src="../../static/img/configuration.png"
                                              alt="Elastic Beanstalk configuration">
+
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+                            </li>
+                            <br>
+                            <li>
+                                On the resulting page, update the value of <b>WSGIPath</b> to
+                                <b>Main/application.py</b>, and update the value of <b>Directory</b> to
+                                <b>Main/static/</b>.
+                                 <a href="#" onclick="return false;">
+                                     <i class="fa fa-picture-o" aria-hidden="true" type="button"
+                                        class="btn btn-info btn-lg" data-toggle="modal"
+                                        data-target="#ElasticBeanstalkURL">
+                                     </i>
+                                 </a>
+
+                                <!--WSGI modal -->
+                                <div id="ElasticBeanstalkURL" class="modal fade" role="dialog">
+
+                                  <div class="modal-dialog modal-content">
+
+                                    <div class="modal-content">
+
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h4 class="modal-title">Elastic Beanstalk Configuration</h4>
+
+                                      </div>
+                                      <div class="modal-body">
+                                        <img class="img-responsive" src="../../static/img/WSGI_path_updates.png"
+                                             alt="Update Paths">
 
                                       </div>
 
