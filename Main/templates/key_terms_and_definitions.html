@@ -11,18 +11,37 @@
                 <div class="entity_wrapper">
 
                     <div class="entity_content" style="text-align: justify;">
-
                         <ul>
-                            <b>Virtual Environment: </b>Have you ever made the same dish in two different ovens and
-                            discovered that it tasted just a little different between the two? Have you ever
-                            washed the same clothes in two different washing machines and found that your
-                            clothes felt slightly different after they came out of one washing machine vs. the other? A
-                            similar phenomenon can happen when you're building Python applications. It's possible for
-                            the exact same app to behave differently from one computer to the next due to differences
-                            between them. In fact, the same Python program might even behave differently
-                            if you run it on the <i>same</i> computer&mdash; if you update that computer in between the times
-                            that you run your app. Virtual environments solve this problem. A virtual environment is a
-                            place on your computer where you can run a program and have confidence that the program
+                            <b><a href="#immutable">Immutable: </a></b>An object is immutable if its value cannot be
+                            changed after that object is created. In every programming language that I've worked in to
+                            date, strings are immutable objects: You can change the reference to a string, but you
+                            cannot change the string itself after you create it. The opposite of an immutable object is a
+                            <a href="/key-terms-and-definitions#mutable">mutable</a> one.
+                            <a href="https://en.wikipedia.org/wiki/Immutable_object">More from Wikipedia.</a>
+                        </ul>
+                        <br>
+                        <ul>
+                            <b><a href="#mutable">Mutable:</a></b> The
+                            <a href="https://www.merriam-webster.com/dictionary/mutable">Merriam-Webster definition </a>
+                            of 'mutable' is "prone to change". In context of programming, mutability is a term used to
+                            refer to an object whose state can be changed after it is created. An example of
+                            a mutable object is a list (or 'array' depending on the language that you're working in),
+                            because one can modify a list after creation, e.g. by adding items to/from it. The
+                            opposite of a mutable object is an
+                            <a href="/key-terms-and-definitions#immutable">immutable</a> one.
+                        </ul>
+                        <br>
+                        <ul>
+                            <b><a href="#virtual environment">Virtual Environment: </a></b>Have you ever eaten the exact
+                            same dish from two different
+                            serving containers, and noticed that it tasted just a <i>little</i> but different when
+                            eaten from one container (e.g. a plastic one) vs. another (e.g. a cardboard one)? Ok,
+                            maybe you're not a picky eater like I am and you've never noticed, but I swear it happens,
+                            and just like the same food tastes different from container to container, the same code can
+                            perform differently from laptop to laptop. That's where virtual environments come in. A
+                            virtual environment is a place in memory on your computer that you create and run your code
+                            in in order to ensure that the code
+                            where you can run a program and have confidence that the program
                             will always behave the same way. It's kind of like a special canister in a larger washing
                             machine that makes sure that your clothes turn out perfectly every time. I strongly
                             recommend doing all Python development in a virtual environment. To learn more about
