@@ -22,7 +22,7 @@ jmespath==0.9.3
 jsonschema==2.6.0
 pathspec==0.5.5
 python-dateutil==2.7.5
-PyYAML==4.2b1
+PyYAML==5.4
 requests==2.20.1
 semantic-version==2.5.0
 six==1.11.0
